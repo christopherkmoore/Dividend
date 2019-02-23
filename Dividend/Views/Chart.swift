@@ -19,10 +19,10 @@ class Chart: UIView {
         static let bottom: CGFloat = 5
     }
     
-    private var chartPoints: [ChartPoint]!
+    private var chartPoints: [ChartPointOneYear]!
 
     
-    required convenience init(frame: CGRect, with chartPoints: [ChartPoint]) {
+    required convenience init(frame: CGRect, with chartPoints: [ChartPointOneYear]) {
         self.init(frame: frame)
         self.chartPoints = chartPoints
     }
@@ -35,7 +35,7 @@ class Chart: UIView {
         super.init(coder: aDecoder)
     }
     
-    public func setup(with points: [ChartPoint]) {
+    public func setup(with points: [ChartPointOneYear]) {
         self.chartPoints = points
     }
     
@@ -80,7 +80,7 @@ class Chart: UIView {
         
         let temp = chartPoints!
             .filter {
-                $0.close == 0 || $0.open == 0
+                $0.close != 0 || $0.open != 0
             }
             .sorted { (first, second) -> Bool in
                 first.close < second.close

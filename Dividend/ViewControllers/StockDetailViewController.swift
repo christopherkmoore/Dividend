@@ -17,7 +17,7 @@ class StockDetailViewController: UIViewController {
     var stock: Stock! {
         didSet {
             // wait for API call to finish to load the chart
-            if stock.chartPoints != nil,
+            if stock.chartPointsOneYear != nil,
                 tableView != nil {
                 DispatchQueue.main.async {
                     self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
@@ -45,7 +45,7 @@ class StockDetailViewController: UIViewController {
         IEXApiClient.shared.getChartDataOneYear(for: stock) { (success, stock, error) in
             guard
                 let stock = stock,
-                let chartPoints = stock.chartPoints
+                let chartPoints = stock.chartPointsOneYear
                 else { return }
             StockManager.shared.update(stock, using: chartPoints)
             self.stock = stock

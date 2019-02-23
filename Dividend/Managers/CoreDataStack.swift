@@ -71,7 +71,7 @@ final class CoreDataManager {
     public func update(_ stock: Stock, using chartPoints: NSOrderedSet) {
         let managedObject = stock as NSManagedObject
         if managedObject.hasChanges {
-            managedObject.setValue(chartPoints, forKey: "chartPoints")
+//            managedObject.setValue(chartPoints, forKey: "chartPoints")
             
             do {
                 try managedObjectContext.save()

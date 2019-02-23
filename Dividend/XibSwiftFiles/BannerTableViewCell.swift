@@ -20,7 +20,7 @@ class BannerTableViewCell: UITableViewCell {
     }
     
     public func set(using stock: Stock) {
-        guard let points = stock.chartPoints?.array as? [ChartPoint] else { return }
+        guard let points = stock.chartPointsOneYear?.array as? [ChartPointOneYear] else { return }
         
         let chart = Chart(frame: self.frame, with: points)
         chart.backgroundColor = .white

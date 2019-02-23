@@ -124,9 +124,9 @@ extension PortfolioViewController: UITableViewDelegate, UITableViewDataSource {
         controller.stock = stock
         /* pre load some shish */
         controller.viewModel = StockDetailViewModel(using: stock)
-//        if stock.chartPoints?.count == 0 {
+        if stock.chartPointsOneYear?.count == 0 {
             controller.getChartData(for: stock)
-//        }
+        }
         
         navigationController?.show(controller, sender: self)
         
