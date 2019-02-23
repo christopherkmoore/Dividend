@@ -42,7 +42,7 @@ class StockDetailViewController: UIViewController {
     }
     
     public func getChartData(for stock: Stock) {
-        IEXApiClient.shared.getChartData(for: stock, withRequest: .dailyChart) { (success, stock, error) in
+        IEXApiClient.shared.getChartDataOneYear(for: stock) { (success, stock, error) in
             guard
                 let stock = stock,
                 let chartPoints = stock.chartPoints

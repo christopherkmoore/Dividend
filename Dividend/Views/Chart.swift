@@ -78,9 +78,13 @@ class Chart: UIView {
         var min: Double = 0
         var max: Double = 0
         
-        let temp = chartPoints!.sorted { (first, second) -> Bool in
-            first.close < second.close
-        }
+        let temp = chartPoints!
+            .filter {
+                $0.close == 0 || $0.open == 0
+            }
+            .sorted { (first, second) -> Bool in
+                first.close < second.close
+            }
         min = temp.first!.close
         max = temp.last!.close
         

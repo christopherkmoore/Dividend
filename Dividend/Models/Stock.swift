@@ -77,6 +77,40 @@ extension Stock {
     @NSManaged public func removeFromChartPoints(_ values: NSOrderedSet)
     
 }
+// MARK: Generated accessors for chartPointsOneYear
+extension Stock {
+    
+    @objc(insertObject:inChartPointsOneYearAtIndex:)
+    @NSManaged public func insertIntoChartPointsOneYear(_ value: ChartPointOneYear, at idx: Int)
+    
+    @objc(removeObjectFromChartPointsOneYearAtIndex:)
+    @NSManaged public func removeFromChartPointsOneYear(at idx: Int)
+    
+    @objc(insertChartPointsOneYear:atIndexes:)
+    @NSManaged public func insertIntoChartPointsOneYear(_ values: [ChartPointOneYear], at indexes: NSIndexSet)
+    
+    @objc(removeChartPointsOneYearAtIndexes:)
+    @NSManaged public func removeFromChartPointsOneYear(at indexes: NSIndexSet)
+    
+    @objc(replaceObjectInChartPointsOneYearAtIndex:withObject:)
+    @NSManaged public func replaceChartPointsOneYear(at idx: Int, with value: ChartPointOneYear)
+    
+    @objc(replaceChartPointsOneYearAtIndexes:withChartPointsOneYear:)
+    @NSManaged public func replaceChartPointsOneYear(at indexes: NSIndexSet, with values: [ChartPointOneYear])
+    
+    @objc(addChartPointsOneYearObject:)
+    @NSManaged public func addToChartPointsOneYear(_ value: ChartPointOneYear)
+    
+    @objc(removeChartPointsOneYearObject:)
+    @NSManaged public func removeFromChartPointsOneYear(_ value: ChartPointOneYear)
+    
+    @objc(addChartPointsOneYear:)
+    @NSManaged public func addToChartPointsOneYear(_ values: NSOrderedSet)
+    
+    @objc(removeChartPointsOneYear:)
+    @NSManaged public func removeFromChartPointsOneYear(_ values: NSOrderedSet)
+    
+}
 
 // MARK: Generated accessors for dividend
 extension Stock {

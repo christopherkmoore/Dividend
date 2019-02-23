@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0383B9172220D3B50072D893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B9162220D3B50072D893 /* AppDelegate.swift */; };
-		0383B91C2220D3B50072D893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0383B91A2220D3B50072D893 /* Main.storyboard */; };
 		0383B9212220D3B70072D893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0383B9202220D3B70072D893 /* Assets.xcassets */; };
 		0383B9242220D3B70072D893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0383B9222220D3B70072D893 /* LaunchScreen.storyboard */; };
 		0383B92F2220D3B70072D893 /* DividendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B92E2220D3B70072D893 /* DividendTests.swift */; };
@@ -16,6 +15,8 @@
 		0383B94C2220D4690072D893 /* Utilities + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B9442220D4690072D893 /* Utilities + Extensions.swift */; };
 		0383B9512220D47F0072D893 /* ChartCodable+ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B9502220D47E0072D893 /* ChartCodable+ApiTests.swift */; };
 		0385D8DD2220F5DF00BDC9DC /* ChartPointOneYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0385D8DC2220F5DF00BDC9DC /* ChartPointOneYear.swift */; };
+		0385D8E02220FE3700BDC9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0385D8DE2220FE3700BDC9DC /* Main.storyboard */; };
+		0385D8E22220FE9100BDC9DC /* CodableSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0385D8E12220FE9100BDC9DC /* CodableSerialization.swift */; };
 		03D5628E2220D715009A6251 /* IEXApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5626A2220D714009A6251 /* IEXApiClient.swift */; };
 		03D5628F2220D715009A6251 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5626C2220D714009A6251 /* Quote.swift */; };
 		03D562902220D715009A6251 /* ChartPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5626D2220D714009A6251 /* ChartPoint.swift */; };
@@ -64,7 +65,6 @@
 /* Begin PBXFileReference section */
 		0383B9132220D3B50072D893 /* Dividend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dividend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0383B9162220D3B50072D893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0383B91B2220D3B50072D893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0383B9202220D3B70072D893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0383B9232220D3B70072D893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0383B92A2220D3B70072D893 /* DividendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DividendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +75,8 @@
 		0383B9442220D4690072D893 /* Utilities + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Utilities + Extensions.swift"; sourceTree = "<group>"; };
 		0383B9502220D47E0072D893 /* ChartCodable+ApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChartCodable+ApiTests.swift"; sourceTree = "<group>"; };
 		0385D8DC2220F5DF00BDC9DC /* ChartPointOneYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPointOneYear.swift; sourceTree = "<group>"; };
+		0385D8DF2220FE3700BDC9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0385D8E12220FE9100BDC9DC /* CodableSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableSerialization.swift; sourceTree = "<group>"; };
 		03D5626A2220D714009A6251 /* IEXApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEXApiClient.swift; sourceTree = "<group>"; };
 		03D5626C2220D714009A6251 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		03D5626D2220D714009A6251 /* ChartPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPoint.swift; sourceTree = "<group>"; };
@@ -168,9 +170,9 @@
 				03D5627A2220D715009A6251 /* XibSwiftFiles */,
 				0383B9442220D4690072D893 /* Utilities + Extensions.swift */,
 				0383B9162220D3B50072D893 /* AppDelegate.swift */,
-				0383B91A2220D3B50072D893 /* Main.storyboard */,
 				0383B9202220D3B70072D893 /* Assets.xcassets */,
 				0383B9222220D3B70072D893 /* LaunchScreen.storyboard */,
+				0385D8DE2220FE3700BDC9DC /* Main.storyboard */,
 				0383B93E2220D4540072D893 /* Info.plist */,
 				0383B93B2220D4370072D893 /* Dividend.xcdatamodeld */,
 			);
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				03D5626A2220D714009A6251 /* IEXApiClient.swift */,
+				0385D8E12220FE9100BDC9DC /* CodableSerialization.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -382,10 +385,10 @@
 				03D562A42220D715009A6251 /* BannerTableViewCell.xib in Resources */,
 				0383B9242220D3B70072D893 /* LaunchScreen.storyboard in Resources */,
 				0383B9212220D3B70072D893 /* Assets.xcassets in Resources */,
+				0385D8E02220FE3700BDC9DC /* Main.storyboard in Resources */,
 				03D562A12220D715009A6251 /* MarketMetricsTableViewCell.xib in Resources */,
 				03D562A62220D715009A6251 /* LastUpdatedTableViewCell.xib in Resources */,
 				03D562A52220D715009A6251 /* HistoryTableViewCell.xib in Resources */,
-				0383B91C2220D3B50072D893 /* Main.storyboard in Resources */,
 				03D562A72220D715009A6251 /* StockTableViewCell.xib in Resources */,
 				03D562A32220D715009A6251 /* ModifySharesTableViewCell.xib in Resources */,
 			);
@@ -469,6 +472,7 @@
 				03D5629C2220D715009A6251 /* ModifySharesTableViewCell.swift in Sources */,
 				0383B9172220D3B50072D893 /* AppDelegate.swift in Sources */,
 				03D562902220D715009A6251 /* ChartPoint.swift in Sources */,
+				0385D8E22220FE9100BDC9DC /* CodableSerialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,20 +496,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0383B91A2220D3B50072D893 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0383B91B2220D3B50072D893 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0383B9222220D3B70072D893 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0383B9232220D3B70072D893 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0385D8DE2220FE3700BDC9DC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0385D8DF2220FE3700BDC9DC /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

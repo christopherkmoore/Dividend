@@ -43,7 +43,7 @@ class IEXApiClient {
     public enum Requests {
         case dividends
         case quotes
-        case chart
+        case yearChart
         case dailyChart
     }
     
@@ -107,10 +107,30 @@ class IEXApiClient {
     }
     */
     
-    public func getChartDataTest(for stock: Stock, withRequest: Requests, completion: @escaping (Bool, [ChartPointOneYear]?, IEXError?) -> Void) {
+    public func getChartDataOneDay(for stock: Stock, completion: @escaping (Bool, [ChartPoint]?, IEXError?) -> Void) {
         
         // ex URL https://api.iextrading.com/1.0/stock/aapl/chart?chartInterval=24&range=1y
-        guard let request = buildURL(for: stock.ticker, with: nil, and: withRequest) else { return }
+        guard let request = buildURL(for: stock.ticker, with: nil, and: .dailyChart) else { return }
+        
+        session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                print(error?.localizedDescription as Any)
+                completion(false, nil, .apiCallFailed(response))
+                return
+            }
+            
+            var chartPoints: [ChartPoint]!
+            
+            chartPoints = try? CodableSerialization.create(from: data)
+            completion(true, chartPoints, nil)
+            
+        }.resume()
+    }
+    
+    public func getChartDataOneYear(for stock: Stock, completion: @escaping (Bool, Stock?, IEXError?) -> Void) {
+        
+        // ex URL https://api.iextrading.com/1.0/stock/aapl/chart?chartInterval=24&range=1y
+        guard let request = buildURL(for: stock.ticker, with: nil, and: .yearChart) else { return }
         
         session.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
@@ -122,34 +142,9 @@ class IEXApiClient {
             var chartPoints: [ChartPointOneYear]!
             
             do {
-                chartPoints = try JSONDecoder().decode(Array<ChartPointOneYear>.self, from: data)
-            } catch let error {
-                print(error.localizedDescription)
-                completion(false, nil, .codableFailure)
-            }
-            completion(true, chartPoints, nil)
-            
-        }.resume()
-    }
-    
-    public func getChartData(for stock: Stock, withRequest: Requests, completion: @escaping (Bool, Stock?, IEXError?) -> Void) {
-        
-        // ex URL https://api.iextrading.com/1.0/stock/aapl/chart?chartInterval=24&range=1y
-        guard let request = buildURL(for: stock.ticker, with: nil, and: withRequest) else { return }
-        
-        session.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                print(error?.localizedDescription as Any)
-                completion(false, nil, .apiCallFailed(response))
-                return
-            }
-            
-            var chartPoints: [ChartPoint]
-            
-            do {
-                chartPoints = try JSONDecoder().decode(Array<ChartPoint>.self, from: data)
+                chartPoints = try CodableSerialization.create(from: data)
                 let set = NSOrderedSet(array: chartPoints)
-                stock.chartPoints = set
+                stock.chartPointsOneYear = set
             } catch let error {
                 print(error.localizedDescription)
                 completion(false, nil, .codableFailure)
@@ -247,7 +242,7 @@ class IEXApiClient {
         
         if let request = requests {
             switch request {
-            case .chart:
+            case .yearChart:
                 url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMonthInDays.rawValue + Endpoints.range.rawValue + Duration.y1.rawValue
             case .dailyChart:
                 url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMinuteInDay.rawValue + Endpoints.range.rawValue + Duration.d1.rawValue

@@ -10,25 +10,12 @@ import XCTest
 
 class ChartCodableTests: XCTestCase {
     
+    var testStock: Stock!
+    
     override func setUp() {
-        super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-
-        var apiSuccess = false
-        var outsideScopeStock: Stock!
-        let expectation1 = self.expectation(description: "async calls")
-        
+        let expectation = self.expectation(description: "async method")
         IEXApiClient.shared.getStock("MO") { (success, stock, error) in
-            
             
             guard success == true else {
                 XCTAssertTrue(success)
@@ -40,24 +27,52 @@ class ChartCodableTests: XCTestCase {
                 XCTFail(error!.localizedDescription)
                 return
             }
-            outsideScopeStock = stock
-            expectation1.fulfill()
+            self.testStock = stock
+            expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 4, handler: nil)
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+        testStock = nil
+    }
+    
+    func testChartDataOneDay() {
+
+        let expectation = self.expectation(description: "async calls")
         
-        let expectation2 = self.expectation(description: "async calls2")
-        IEXApiClient.shared.getChartDataTest(for: outsideScopeStock, withRequest: .chart) { (success, chartPoint, error) in
+        IEXApiClient.shared.getChartDataOneDay(for: testStock) { (success, chartPoint, error) in
+            XCTAssertTrue(success)
             
-            guard let chartPoints = chartPoint else {
+            guard let _ = chartPoint else {
                 XCTFail(error!.localizedDescription)
                 return
             }
-            apiSuccess = true
-            expectation2.fulfill()
+            expectation.fulfill()
         }
         
         waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testChartDataOneYear() {
         
+        let expectation = self.expectation(description: "async calls")
+        
+        IEXApiClient.shared.getChartDataOneYear(for: testStock) { (success, chartPoint, error) in
+            XCTAssertTrue(success)
+            
+            guard let _ = chartPoint else {
+                XCTFail(error!.localizedDescription)
+                return
+            }
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
     }
 }

@@ -43,13 +43,13 @@ class ChartPoint: NSManagedObject, Decodable {
     @NSManaged public var high: Double
     @NSManaged public var low: Double
     @NSManaged public var average: Double
-    @NSManaged public var volume: Int64
+    @NSManaged public var volume: Int32
     @NSManaged public var notional: Double
     @NSManaged public var numberOfTrades: Int16
     @NSManaged public var marketHigh: Double
     @NSManaged public var marketLow: Double
     @NSManaged public var marketAverage: Double
-    @NSManaged public var marketVolume: Int16
+    @NSManaged public var marketVolume: Int32
     @NSManaged public var marketNotional: Double
     @NSManaged public var marketNumberOfTrades: Int16
     @NSManaged public var open: Double
@@ -98,20 +98,20 @@ class ChartPoint: NSManagedObject, Decodable {
         high = try container.decode(Double.self, forKey: .high)
         low = try container.decode(Double.self, forKey: .low)
         average = try container.decode(Double.self, forKey: .average)
-        volume = try container.decode(Int64.self, forKey: .volume)
+        volume = try container.decode(Int32.self, forKey: .volume)
         notional = try container.decode(Double.self, forKey: .notional)
         numberOfTrades = try container.decode(Int16.self, forKey: .numberOfTrades)
         marketHigh = try container.decode(Double.self, forKey: .marketHigh)
         marketLow = try container.decode(Double.self, forKey: .marketLow)
         marketAverage = try container.decode(Double.self, forKey: .marketAverage)
-        marketVolume = try container.decode(Int16.self, forKey: .marketVolume)
+        marketVolume = try container.decode(Int32.self, forKey: .marketVolume)
         marketNotional = try container.decode(Double.self, forKey: .marketNotional)
         marketNumberOfTrades = try container.decode(Int16.self, forKey: .marketNumberOfTrades)
-        open = try container.decode(Double.self, forKey: .open)
-        close = try container.decode(Double.self, forKey: .close)
+        open = try container.decodeIfPresent(Double.self, forKey: .open) ?? 0
+        close = try container.decodeIfPresent(Double.self, forKey: .close) ?? 0
         marketOpen = try container.decode(Double.self, forKey: .marketOpen)
         marketClose = try container.decode(Double.self, forKey: .marketClose)
-        changeOverTime = try container.decode(Float.self, forKey: .changeOverTime)
+        changeOverTime = try container.decodeIfPresent(Float.self, forKey: .changeOverTime) ?? 0
         marketChangeOverTime = try container.decode(Float.self, forKey: .marketChangeOverTime)
     }
 }
