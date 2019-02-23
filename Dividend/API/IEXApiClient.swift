@@ -107,7 +107,7 @@ class IEXApiClient {
     }
     */
     
-    public func getChartDataTest(for stock: Stock, withRequest: Requests, completion: @escaping (Bool, [ChartPoint]?, IEXError?) -> Void) {
+    public func getChartDataTest(for stock: Stock, withRequest: Requests, completion: @escaping (Bool, [ChartPointOneYear]?, IEXError?) -> Void) {
         
         // ex URL https://api.iextrading.com/1.0/stock/aapl/chart?chartInterval=24&range=1y
         guard let request = buildURL(for: stock.ticker, with: nil, and: withRequest) else { return }
@@ -119,10 +119,10 @@ class IEXApiClient {
                 return
             }
             
-            var chartPoints: [ChartPoint]!
+            var chartPoints: [ChartPointOneYear]!
             
             do {
-                chartPoints = try JSONDecoder().decode(Array<ChartPoint>.self, from: data)
+                chartPoints = try JSONDecoder().decode(Array<ChartPointOneYear>.self, from: data)
             } catch let error {
                 print(error.localizedDescription)
                 completion(false, nil, .codableFailure)

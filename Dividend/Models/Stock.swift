@@ -39,6 +39,7 @@ extension Stock {
     @NSManaged public var dividend: NSOrderedSet?
     @NSManaged public var quote: Quote?
     @NSManaged public var chartPoints: NSOrderedSet?
+    @NSManaged public var chartPointsOneYear: NSOrderedSet?
     
 }
 

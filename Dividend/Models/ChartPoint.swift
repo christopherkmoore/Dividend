@@ -13,20 +13,6 @@ class ChartPoint: NSManagedObject, Decodable {
     
     /* Example return in an array of objects
      
-     // NOW OLD ( as of updating, Feb 22 2019
-     "date": "2017-08-17",
-     "open": 158.129,
-     "high": 158.3162,
-     "low": 155.4889,
-     "close": 155.5086,
-     "volume": 27940565,
-     "unadjustedVolume": 27940565,
-     "change": -3.044,
-     "changePercent": -1.92,
-     "vwap": 156.5411,
-     "label": "Aug 17, 17",
-     "changeOverTime": 0
-     
      // NEW
      "date": "20190221",
      "minute": "09:50",

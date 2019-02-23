@@ -27,6 +27,21 @@
         <attribute name="vwap" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="chartPoints" inverseEntity="Stock" syncable="YES"/>
     </entity>
+    <entity name="ChartPointOneYear" representedClassName=".ChartPointOneYear" syncable="YES">
+        <attribute name="change" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="changeOverTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="changePercent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="close" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateLabelMMMddyy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="high" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="low" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="open" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unadjustedVolume" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vwap" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="chartPointsOneYear" inverseEntity="Stock" syncable="YES"/>
+    </entity>
     <entity name="Dividend" representedClassName=".Dividend" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="declaredDate" attributeType="String" syncable="YES"/>
@@ -81,6 +96,7 @@
     <entity name="Stock" representedClassName=".Stock" syncable="YES">
         <attribute name="ticker" attributeType="String" syncable="YES"/>
         <relationship name="chartPoints" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ChartPoint" inverseName="stock" inverseEntity="ChartPoint" syncable="YES"/>
+        <relationship name="chartPointsOneYear" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ChartPointOneYear" inverseName="stock" inverseEntity="ChartPointOneYear" syncable="YES"/>
         <relationship name="dividend" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Dividend" inverseName="stock" inverseEntity="Dividend" syncable="YES"/>
         <relationship name="quote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quote" inverseName="stock" inverseEntity="Quote" syncable="YES"/>
     </entity>
@@ -88,6 +104,7 @@
         <element name="ChartPoint" positionX="-45" positionY="135" width="128" height="420"/>
         <element name="Dividend" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Quote" positionX="-54" positionY="63" width="128" height="660"/>
-        <element name="Stock" positionX="-36" positionY="153" width="128" height="105"/>
+        <element name="Stock" positionX="-36" positionY="153" width="128" height="120"/>
+        <element name="ChartPointOneYear" positionX="-45" positionY="135" width="128" height="240"/>
     </elements>
 </model>

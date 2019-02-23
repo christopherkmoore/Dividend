@@ -15,6 +15,7 @@
 		0383B93D2220D4370072D893 /* Dividend.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0383B93B2220D4370072D893 /* Dividend.xcdatamodeld */; };
 		0383B94C2220D4690072D893 /* Utilities + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B9442220D4690072D893 /* Utilities + Extensions.swift */; };
 		0383B9512220D47F0072D893 /* ChartCodable+ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B9502220D47E0072D893 /* ChartCodable+ApiTests.swift */; };
+		0385D8DD2220F5DF00BDC9DC /* ChartPointOneYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0385D8DC2220F5DF00BDC9DC /* ChartPointOneYear.swift */; };
 		03D5628E2220D715009A6251 /* IEXApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5626A2220D714009A6251 /* IEXApiClient.swift */; };
 		03D5628F2220D715009A6251 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5626C2220D714009A6251 /* Quote.swift */; };
 		03D562902220D715009A6251 /* ChartPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5626D2220D714009A6251 /* ChartPoint.swift */; };
@@ -73,6 +74,7 @@
 		0383B93E2220D4540072D893 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0383B9442220D4690072D893 /* Utilities + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Utilities + Extensions.swift"; sourceTree = "<group>"; };
 		0383B9502220D47E0072D893 /* ChartCodable+ApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChartCodable+ApiTests.swift"; sourceTree = "<group>"; };
+		0385D8DC2220F5DF00BDC9DC /* ChartPointOneYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPointOneYear.swift; sourceTree = "<group>"; };
 		03D5626A2220D714009A6251 /* IEXApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEXApiClient.swift; sourceTree = "<group>"; };
 		03D5626C2220D714009A6251 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		03D5626D2220D714009A6251 /* ChartPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPoint.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				03D5626D2220D714009A6251 /* ChartPoint.swift */,
 				03D5626E2220D714009A6251 /* Stock.swift */,
 				03D5626F2220D714009A6251 /* Dividend.swift */,
+				0385D8DC2220F5DF00BDC9DC /* ChartPointOneYear.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D562AA2220D715009A6251 /* StockDetailViewModel.swift in Sources */,
+				0385D8DD2220F5DF00BDC9DC /* ChartPointOneYear.swift in Sources */,
 				03D562962220D715009A6251 /* StockDetailViewController.swift in Sources */,
 				03D562922220D715009A6251 /* Dividend.swift in Sources */,
 				03D5628E2220D715009A6251 /* IEXApiClient.swift in Sources */,
