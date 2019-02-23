@@ -18,7 +18,6 @@ class HistoryViewModel {
     var upcomingPayments = [[String: String]]()
     
     var finalDividendHistory = [[String: String]]()
-    var dividendPrices = [Double]()
     
     
     func lookEx() {

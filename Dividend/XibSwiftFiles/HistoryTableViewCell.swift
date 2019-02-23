@@ -30,6 +30,7 @@ class HistoryTableViewCell: UITableViewCell {
             let value = div?.first?.value else {
                 return
         }
+        
         let price = StockManager.shared.lastDividend(for: value)?.amount
         
         let text = key + value + " "
