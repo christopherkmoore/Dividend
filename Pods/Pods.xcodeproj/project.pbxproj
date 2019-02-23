@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06389C97D7C4C86CE0716A4780605609 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4611BAC35B7684CA1264502CB1C7584 /* Deprecated.swift */; };
+		1C3DA14C64B24A140D1F00B0383730E5 /* Kanna-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9335701FB49007724B7C889D5B1875C6 /* Kanna-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3AC37C04F7112DD7D5657D293627CC43 /* Pods-Dividend-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5F1ABBEB21D6230640BA65288E9FF /* Pods-Dividend-dummy.m */; };
+		419BDDF0462E7D22C5F5677411A643F4 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C864092D8E1654F1C14591929FFA726 /* Kanna.swift */; };
+		435F0A9DCF8B0F53084CFA2D080457D2 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A80DF9918644639BF3FE26A063BFEDE /* libxmlHTMLNode.swift */; };
+		47D8F5F5FEE5FE3106657E35F5162565 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF6787E36138C0D1EEF0165DC52EE2 /* CSS.swift */; };
+		8EC19D1ED9C483E2A975899C5773546B /* Kanna-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CE05FABA2AE1A43FD582153C26CB20 /* Kanna-dummy.m */; };
+		B67AF1A80B37A6A216AEEB602C210D6A /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = F7FA0707CE466A6FDB36E2A65EE3AEB4 /* Kanna.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D254D314101D8A0F137E31CE55EEDC5F /* Pods-DividendTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A983A7BD1B178927D7206C3809282071 /* Pods-DividendTests-dummy.m */; };
+		D34590B115573CF4528C597F989E8808 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81636D8E5F8278D09BC1E762A0B77E3 /* libxmlHTMLDocument.swift */; };
+		DB30A0115DA7CFAE5F257F2E325BE5CF /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A7D6F63C2A7C8E7E5CD373B3EE863D /* libxmlParserOption.swift */; };
+		FCC36ADA38D090634FEB545078B6E5A1 /* Pods-Dividend-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D7E94A1B6DFA7BB3900859066A9AE8B /* Pods-Dividend-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD3E6DA631181105518869505F1DC694 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2222C6597ADCB09D32AB461A9EECAFBD;
+			remoteInfo = "Pods-Dividend";
+		};
+		E0BB73F59EAA7542BCEB88EF2CBA5657 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E051DD23F530E6000A07D9AC8E411B92;
+			remoteInfo = Kanna;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0630DC9ECC4F004AAA116D5A1169DE4A /* libPods-Dividend.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Dividend.a"; path = "libPods-Dividend.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		152C03E021A486BFD5D57CF846E3839F /* Pods-Dividend.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Dividend.modulemap"; sourceTree = "<group>"; };
+		18AD37C02B68086700E2F287F4081AEF /* Kanna.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = Kanna.modulemap; path = ../../Headers/Public/Kanna/Kanna.modulemap; sourceTree = "<group>"; };
+		1A1658971E7DE26E9D4322BE1141A8BB /* Pods-Dividend-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dividend-frameworks.sh"; sourceTree = "<group>"; };
+		1F97A537BAEEC2EBC76A85B90264D210 /* Pods-DividendTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DividendTests-resources.sh"; sourceTree = "<group>"; };
+		2C864092D8E1654F1C14591929FFA726 /* Kanna.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kanna.swift; path = Sources/Kanna/Kanna.swift; sourceTree = "<group>"; };
+		3A80DF9918644639BF3FE26A063BFEDE /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = libxmlHTMLNode.swift; path = Sources/Kanna/libxmlHTMLNode.swift; sourceTree = "<group>"; };
+		4AD167E9A3126902AD6FC85F844749B1 /* Pods-DividendTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DividendTests-frameworks.sh"; sourceTree = "<group>"; };
+		4BB5F1ABBEB21D6230640BA65288E9FF /* Pods-Dividend-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Dividend-dummy.m"; sourceTree = "<group>"; };
+		4DCF6787E36138C0D1EEF0165DC52EE2 /* CSS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CSS.swift; path = Sources/Kanna/CSS.swift; sourceTree = "<group>"; };
+		4EC137D660A89B5DD04AD1D94CAC5A14 /* Pods-DividendTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DividendTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		68DB5B724B578A83D1B418A2FC9DC8A3 /* Pods-DividendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DividendTests.debug.xcconfig"; sourceTree = "<group>"; };
+		73CE05FABA2AE1A43FD582153C26CB20 /* Kanna-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kanna-dummy.m"; sourceTree = "<group>"; };
+		7417913A808D8F8280C00DCEBC22E2FF /* libPods-DividendTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-DividendTests.a"; path = "libPods-DividendTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		74759BD2417EBC2F7996190093ABC74C /* Pods-Dividend-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dividend-resources.sh"; sourceTree = "<group>"; };
+		7D7E94A1B6DFA7BB3900859066A9AE8B /* Pods-Dividend-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Dividend-umbrella.h"; sourceTree = "<group>"; };
+		804F5333972E0574995FE83D601D7B7B /* Pods-DividendTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DividendTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		8948393E18BFBD71AAD4BC783EE05E91 /* Kanna.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kanna.xcconfig; sourceTree = "<group>"; };
+		9335701FB49007724B7C889D5B1875C6 /* Kanna-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Kanna-umbrella.h"; path = "../../Headers/Public/Kanna/Kanna-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		968D21C97BF5CF2AF0F4E3DE215A6A89 /* Pods-Dividend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dividend.debug.xcconfig"; sourceTree = "<group>"; };
+		9844A76FBA3247CBFF472F5E4136B092 /* Pods-DividendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DividendTests.release.xcconfig"; sourceTree = "<group>"; };
+		99A7D6F63C2A7C8E7E5CD373B3EE863D /* libxmlParserOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = libxmlParserOption.swift; path = Sources/Kanna/libxmlParserOption.swift; sourceTree = "<group>"; };
+		A4611BAC35B7684CA1264502CB1C7584 /* Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecated.swift; path = Sources/Kanna/Deprecated.swift; sourceTree = "<group>"; };
+		A983A7BD1B178927D7206C3809282071 /* Pods-DividendTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DividendTests-dummy.m"; sourceTree = "<group>"; };
+		ACC4B97B2688BC7E95B0BF59B59428BA /* Kanna-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kanna-prefix.pch"; sourceTree = "<group>"; };
+		B6496E9B217F32171A7880E0D951A9D3 /* libKanna.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libKanna.a; path = libKanna.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81636D8E5F8278D09BC1E762A0B77E3 /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = libxmlHTMLDocument.swift; path = Sources/Kanna/libxmlHTMLDocument.swift; sourceTree = "<group>"; };
+		CBF11D2B8B71555D57FA9A8ECA3FA524 /* Pods-Dividend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dividend.release.xcconfig"; sourceTree = "<group>"; };
+		CD9C17CEDEA0966487B5B17442FC8D9B /* Pods-Dividend-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Dividend-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E34CEAA9EB9D4594FF1AF6BBBFE06662 /* Pods-Dividend-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Dividend-acknowledgements.plist"; sourceTree = "<group>"; };
+		F7FA0707CE466A6FDB36E2A65EE3AEB4 /* Kanna.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kanna.h; path = Sources/Kanna/Kanna.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65610E56EF20340D8E36A7ED9FB9831E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		714AE2B78C4FFBEB70A0B9F68DCF50C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9002426D21DB079B7860BEDBBBBCFCCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FAE0A8097BF3A0669A44261CF57EBD2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				18AD37C02B68086700E2F287F4081AEF /* Kanna.modulemap */,
+				8948393E18BFBD71AAD4BC783EE05E91 /* Kanna.xcconfig */,
+				73CE05FABA2AE1A43FD582153C26CB20 /* Kanna-dummy.m */,
+				ACC4B97B2688BC7E95B0BF59B59428BA /* Kanna-prefix.pch */,
+				9335701FB49007724B7C889D5B1875C6 /* Kanna-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Kanna";
+			sourceTree = "<group>";
+		};
+		3B6964DA2105390D1E4DA1A1C475EFE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84C33DDB39C472BAB74F3848D2A1F20E /* Kanna */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		65AFA68AA65835C10059A6001796D84D /* Pods-Dividend */ = {
+			isa = PBXGroup;
+			children = (
+				152C03E021A486BFD5D57CF846E3839F /* Pods-Dividend.modulemap */,
+				CD9C17CEDEA0966487B5B17442FC8D9B /* Pods-Dividend-acknowledgements.markdown */,
+				E34CEAA9EB9D4594FF1AF6BBBFE06662 /* Pods-Dividend-acknowledgements.plist */,
+				4BB5F1ABBEB21D6230640BA65288E9FF /* Pods-Dividend-dummy.m */,
+				1A1658971E7DE26E9D4322BE1141A8BB /* Pods-Dividend-frameworks.sh */,
+				74759BD2417EBC2F7996190093ABC74C /* Pods-Dividend-resources.sh */,
+				7D7E94A1B6DFA7BB3900859066A9AE8B /* Pods-Dividend-umbrella.h */,
+				968D21C97BF5CF2AF0F4E3DE215A6A89 /* Pods-Dividend.debug.xcconfig */,
+				CBF11D2B8B71555D57FA9A8ECA3FA524 /* Pods-Dividend.release.xcconfig */,
+			);
+			name = "Pods-Dividend";
+			path = "Target Support Files/Pods-Dividend";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
+				3B6964DA2105390D1E4DA1A1C475EFE7 /* Pods */,
+				D972C349F36039D5C23F35A511A1F698 /* Products */,
+				C1E46F336B240A7D51B10D88892497C9 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		84C33DDB39C472BAB74F3848D2A1F20E /* Kanna */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF6787E36138C0D1EEF0165DC52EE2 /* CSS.swift */,
+				A4611BAC35B7684CA1264502CB1C7584 /* Deprecated.swift */,
+				F7FA0707CE466A6FDB36E2A65EE3AEB4 /* Kanna.h */,
+				2C864092D8E1654F1C14591929FFA726 /* Kanna.swift */,
+				B81636D8E5F8278D09BC1E762A0B77E3 /* libxmlHTMLDocument.swift */,
+				3A80DF9918644639BF3FE26A063BFEDE /* libxmlHTMLNode.swift */,
+				99A7D6F63C2A7C8E7E5CD373B3EE863D /* libxmlParserOption.swift */,
+				2FAE0A8097BF3A0669A44261CF57EBD2 /* Support Files */,
+			);
+			name = Kanna;
+			path = Kanna;
+			sourceTree = "<group>";
+		};
+		8BCB0DBE750879E691ED375DB3AB181C /* Pods-DividendTests */ = {
+			isa = PBXGroup;
+			children = (
+				4EC137D660A89B5DD04AD1D94CAC5A14 /* Pods-DividendTests-acknowledgements.markdown */,
+				804F5333972E0574995FE83D601D7B7B /* Pods-DividendTests-acknowledgements.plist */,
+				A983A7BD1B178927D7206C3809282071 /* Pods-DividendTests-dummy.m */,
+				4AD167E9A3126902AD6FC85F844749B1 /* Pods-DividendTests-frameworks.sh */,
+				1F97A537BAEEC2EBC76A85B90264D210 /* Pods-DividendTests-resources.sh */,
+				68DB5B724B578A83D1B418A2FC9DC8A3 /* Pods-DividendTests.debug.xcconfig */,
+				9844A76FBA3247CBFF472F5E4136B092 /* Pods-DividendTests.release.xcconfig */,
+			);
+			name = "Pods-DividendTests";
+			path = "Target Support Files/Pods-DividendTests";
+			sourceTree = "<group>";
+		};
+		C1E46F336B240A7D51B10D88892497C9 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				65AFA68AA65835C10059A6001796D84D /* Pods-Dividend */,
+				8BCB0DBE750879E691ED375DB3AB181C /* Pods-DividendTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D972C349F36039D5C23F35A511A1F698 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6496E9B217F32171A7880E0D951A9D3 /* libKanna.a */,
+				0630DC9ECC4F004AAA116D5A1169DE4A /* libPods-Dividend.a */,
+				7417913A808D8F8280C00DCEBC22E2FF /* libPods-DividendTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2953946B8B7BFE9F7914AAD793CFD6E6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC36ADA38D090634FEB545078B6E5A1 /* Pods-Dividend-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		527826FF7D5E3D3CE7FFA6B3D5CE4AA7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C3DA14C64B24A140D1F00B0383730E5 /* Kanna-umbrella.h in Headers */,
+				B67AF1A80B37A6A216AEEB602C210D6A /* Kanna.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2222C6597ADCB09D32AB461A9EECAFBD /* Pods-Dividend */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA448DCEAE2C0E0951E3D5910405AAF2 /* Build configuration list for PBXNativeTarget "Pods-Dividend" */;
+			buildPhases = (
+				459DC4072C425179C4778836EB3ED054 /* Sources */,
+				65610E56EF20340D8E36A7ED9FB9831E /* Frameworks */,
+				2953946B8B7BFE9F7914AAD793CFD6E6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C265216B0044242261B3B1ABB8BBFA2D /* PBXTargetDependency */,
+			);
+			name = "Pods-Dividend";
+			productName = "Pods-Dividend";
+			productReference = 0630DC9ECC4F004AAA116D5A1169DE4A /* libPods-Dividend.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		837F70FA213E8C55C7F60CFC8CA5D60D /* Pods-DividendTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B439369E5ED941966DA6E16AE7EE654 /* Build configuration list for PBXNativeTarget "Pods-DividendTests" */;
+			buildPhases = (
+				158218066D4E16A8FE17243CA393B085 /* Sources */,
+				714AE2B78C4FFBEB70A0B9F68DCF50C1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA02855B29825C054E4996FD84148279 /* PBXTargetDependency */,
+			);
+			name = "Pods-DividendTests";
+			productName = "Pods-DividendTests";
+			productReference = 7417913A808D8F8280C00DCEBC22E2FF /* libPods-DividendTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E051DD23F530E6000A07D9AC8E411B92 /* Kanna */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40000859B5D3C39807E14CE53386DDF6 /* Build configuration list for PBXNativeTarget "Kanna" */;
+			buildPhases = (
+				C91FD751CA6B3CE02BEA3AF1051AF410 /* Sources */,
+				9002426D21DB079B7860BEDBBBBCFCCE /* Frameworks */,
+				527826FF7D5E3D3CE7FFA6B3D5CE4AA7 /* Headers */,
+				DE6348E4F69875818EEF078D04169861 /* Copy generated compatibility header */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kanna;
+			productName = Kanna;
+			productReference = B6496E9B217F32171A7880E0D951A9D3 /* libKanna.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = D972C349F36039D5C23F35A511A1F698 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E051DD23F530E6000A07D9AC8E411B92 /* Kanna */,
+				2222C6597ADCB09D32AB461A9EECAFBD /* Pods-Dividend */,
+				837F70FA213E8C55C7F60CFC8CA5D60D /* Pods-DividendTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DE6348E4F69875818EEF078D04169861 /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/Kanna/Kanna.modulemap",
+				"${PODS_ROOT}/Headers/Public/Kanna/Kanna-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/Kanna-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/Kanna/Kanna.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/Kanna/Kanna-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
+			showEnvVarsInLog = 1;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		158218066D4E16A8FE17243CA393B085 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D254D314101D8A0F137E31CE55EEDC5F /* Pods-DividendTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		459DC4072C425179C4778836EB3ED054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC37C04F7112DD7D5657D293627CC43 /* Pods-Dividend-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C91FD751CA6B3CE02BEA3AF1051AF410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D8F5F5FEE5FE3106657E35F5162565 /* CSS.swift in Sources */,
+				06389C97D7C4C86CE0716A4780605609 /* Deprecated.swift in Sources */,
+				8EC19D1ED9C483E2A975899C5773546B /* Kanna-dummy.m in Sources */,
+				419BDDF0462E7D22C5F5677411A643F4 /* Kanna.swift in Sources */,
+				D34590B115573CF4528C597F989E8808 /* libxmlHTMLDocument.swift in Sources */,
+				435F0A9DCF8B0F53084CFA2D080457D2 /* libxmlHTMLNode.swift in Sources */,
+				DB30A0115DA7CFAE5F257F2E325BE5CF /* libxmlParserOption.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C265216B0044242261B3B1ABB8BBFA2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kanna;
+			target = E051DD23F530E6000A07D9AC8E411B92 /* Kanna */;
+			targetProxy = E0BB73F59EAA7542BCEB88EF2CBA5657 /* PBXContainerItemProxy */;
+		};
+		CA02855B29825C054E4996FD84148279 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Dividend";
+			target = 2222C6597ADCB09D32AB461A9EECAFBD /* Pods-Dividend */;
+			targetProxy = DD3E6DA631181105518869505F1DC694 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		063198AB09B9CDB3A695432FC17AD8CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		428B90408ABDB4DAECFDF848A14CA964 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68DB5B724B578A83D1B418A2FC9DC8A3 /* Pods-DividendTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63BAA82F183D837D3A40C0A2FCD32F5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9844A76FBA3247CBFF472F5E4136B092 /* Pods-DividendTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		87EAC867385563488A6D8F1E74AC46B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9900AC063E9DBB54B7A3E849BAA89B28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBF11D2B8B71555D57FA9A8ECA3FA524 /* Pods-Dividend.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Dividend/Pods-Dividend.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A1999C39780B32A977C414EE276E1AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 968D21C97BF5CF2AF0F4E3DE215A6A89 /* Pods-Dividend.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Dividend/Pods-Dividend.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B626DD59CCB01427232D1917F2CAFA07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8948393E18BFBD71AAD4BC783EE05E91 /* Kanna.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Kanna/Kanna-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/Kanna/Kanna.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Kanna;
+				PRODUCT_NAME = Kanna;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C366CF157F9CE1F66FB2C74F87640C81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8948393E18BFBD71AAD4BC783EE05E91 /* Kanna.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Kanna/Kanna-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/Kanna/Kanna.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Kanna;
+				PRODUCT_NAME = Kanna;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B439369E5ED941966DA6E16AE7EE654 /* Build configuration list for PBXNativeTarget "Pods-DividendTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				428B90408ABDB4DAECFDF848A14CA964 /* Debug */,
+				63BAA82F183D837D3A40C0A2FCD32F5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87EAC867385563488A6D8F1E74AC46B4 /* Debug */,
+				063198AB09B9CDB3A695432FC17AD8CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40000859B5D3C39807E14CE53386DDF6 /* Build configuration list for PBXNativeTarget "Kanna" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C366CF157F9CE1F66FB2C74F87640C81 /* Debug */,
+				B626DD59CCB01427232D1917F2CAFA07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA448DCEAE2C0E0951E3D5910405AAF2 /* Build configuration list for PBXNativeTarget "Pods-Dividend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A1999C39780B32A977C414EE276E1AB /* Debug */,
+				9900AC063E9DBB54B7A3E849BAA89B28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

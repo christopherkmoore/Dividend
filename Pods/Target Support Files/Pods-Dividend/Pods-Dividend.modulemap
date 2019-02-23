@@ -1,0 +1,6 @@
+module Pods_Dividend {
+  umbrella header "Pods-Dividend-umbrella.h"
+
+  export *
+  module * { export * }
+}
