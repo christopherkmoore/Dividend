@@ -38,7 +38,6 @@ class ChartCodableTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
-        testStock = nil
     }
     
     func testChartDataOneDay() {
@@ -48,10 +47,13 @@ class ChartCodableTests: XCTestCase {
         IEXApiClient.shared.getChartDataOneDay(for: testStock) { (success, chartPoint, error) in
             XCTAssertTrue(success)
             
-            guard let _ = chartPoint else {
+            guard let dayChartPoints = chartPoint else {
                 XCTFail(error!.localizedDescription)
                 return
             }
+            
+            let set = NSOrderedSet(array: dayChartPoints)
+            self.testStock.chartPoints = set
             expectation.fulfill()
         }
         
@@ -62,17 +64,32 @@ class ChartCodableTests: XCTestCase {
         
         let expectation = self.expectation(description: "async calls")
         
-        IEXApiClient.shared.getChartDataOneYear(for: testStock) { (success, chartPoint, error) in
+        IEXApiClient.shared.getChartDataOneYear(for: testStock) { (success, stock, error) in
             XCTAssertTrue(success)
             
-            guard let _ = chartPoint else {
+            guard let yearChartPoints = stock?.chartPointsOneYear else {
                 XCTFail(error!.localizedDescription)
                 return
             }
             
+            self.testStock.chartPointsOneYear = yearChartPoints
             expectation.fulfill()
         }
         
         waitForExpectations(timeout: 5, handler: nil)
+        testMakeOneYearChart()
+    }
+    
+    // Needs to be executed in order or else xcode will blow it up by running it before everything else.
+    func testMakeOneYearChart() {
+        
+        guard let points = testStock?.chartPointsOneYear?.array as? [ChartPointOneYear] else {
+            print("Unable to cast stocks chart points into proper type")
+            XCTFail()
+            return
+        }
+        
+        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 0, height: 0), with: points)
+        XCTAssertNotNil(chart)
     }
 }
