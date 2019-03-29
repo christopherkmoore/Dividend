@@ -40,6 +40,7 @@ extension Stock {
     @NSManaged public var quote: Quote?
     @NSManaged public var chartPoints: NSOrderedSet?
     @NSManaged public var chartPointsOneYear: NSOrderedSet?
+    @NSManaged public var dateAddedToPortfolio: Date
     
 }
 

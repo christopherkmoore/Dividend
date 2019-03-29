@@ -22,7 +22,7 @@ class HistoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    public func set(using viewModel: HistoryViewModel?, at index: Int) {
+    public func set(using viewModel: DividendHistoryViewModel?, at index: Int) {
         let div = viewModel?.finalDividendHistory[index]
         
         guard

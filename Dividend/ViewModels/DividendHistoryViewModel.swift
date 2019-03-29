@@ -9,7 +9,7 @@
 import Foundation
 
 
-class HistoryViewModel {
+class DividendHistoryViewModel {
     
     static let ex = " is going ex: "
     static let payable = " is paying: "
@@ -26,7 +26,7 @@ class HistoryViewModel {
         StockManager.shared.stocks.forEach { stock in
             
             guard let div = stock.dividend?.firstObject as? Dividend else { return }
-            let text = stock.ticker + HistoryViewModel.ex
+            let text = stock.ticker + DividendHistoryViewModel.ex
             upcomingExDividends.append([text: div.exDate])
         }
         var filtered = dividendsIn(30, for: upcomingExDividends)
@@ -38,7 +38,7 @@ class HistoryViewModel {
         StockManager.shared.stocks.forEach {
 
             guard let div = $0.dividend?.firstObject as? Dividend else { return }
-            let text = $0.ticker + HistoryViewModel.payable
+            let text = $0.ticker + DividendHistoryViewModel.payable
             upcomingPayments.append([text: div.paymentDate])
         }
 //        var filtered = dividendsIn(30, for: upcomingPayments)
