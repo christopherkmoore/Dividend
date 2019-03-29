@@ -45,6 +45,9 @@ class PortfolioViewController: UIViewController {
                 }
                 
                 if let stock = result {
+//                    stock.dateAddedToPortfolio = Date()
+                    // for debugging filtering in dividend history
+                    stock.dateAddedToPortfolio = ISO8601DateFormatter().date(from: "2016-04-14T10:44:00+0000") ?? Date()
                     StockManager.shared.add(stock)
                 }
             }

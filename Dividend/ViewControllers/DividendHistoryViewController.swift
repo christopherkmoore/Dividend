@@ -13,7 +13,7 @@ class HistoryViewController: UIViewController {
     
     @IBOutlet weak var historyTableView: UITableView!
     
-    var divHistoryViewModel: HistoryViewModel?
+    var divHistoryViewModel: DividendHistoryViewModel?
     weak var stockDelegate: StockManagerDelegate!
     
     @IBAction func addStock(_ sender: Any) {
@@ -43,6 +43,9 @@ class HistoryViewController: UIViewController {
                     return
                 }
                 if let stock = result {
+//                    stock.dateAddedToPortfolio = Date()
+                    // for debugging dividend history filters
+                    stock.dateAddedToPortfolio = ISO8601DateFormatter().date(from: "2016-04-14T10:44:00+0000") ?? Date()
                     StockManager.shared.add(stock)
                 }
             }
@@ -52,13 +55,16 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let dataSource = DividendHistoryDataSource()
+        dataSource.loadEx()
+        
         if stockDelegate == nil {
             self.stockDelegate = self
             StockManager.shared.addDelegate(stockDelegate)
         }
         
         if divHistoryViewModel == nil {
-            self.divHistoryViewModel = HistoryViewModel()
+            self.divHistoryViewModel = DividendHistoryViewModel()
             self.divHistoryViewModel?.searchDividendData()
         }
         
