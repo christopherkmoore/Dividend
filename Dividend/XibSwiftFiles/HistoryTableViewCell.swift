@@ -39,6 +39,29 @@ class HistoryTableViewCell: UITableViewCell {
     
     }
     
+    public func setPayment(using dividend: Dividend) {
+        
+        guard let ticker = dividend.stock?.ticker else { return }
+        
+        let description = "\(ticker) is paying on \(dividend.paymentDate)"
+        let amount = "\(dividend.amount)"
+        
+        rightTextLabel.text = description
+        leftLabel.text = amount
+    }
+    
+    public func setHistory(using dividend: Dividend) {
+        
+        guard let ticker = dividend.stock?.ticker else { return }
+        
+        let description = "\(ticker) paid \(dividend.paymentDate)"
+        let amount = "\(dividend.amount)"
+        
+        rightTextLabel.text = description
+        leftLabel.text = amount
+
+    }
+    
     
 }
 

@@ -11,9 +11,13 @@ import UIKit
 
 class HistoryViewController: UIViewController {
     
+    enum DividendHistorySections: Int,  CaseIterable {
+        case upcoming, history
+    }
+    
     @IBOutlet weak var historyTableView: UITableView!
     
-    var divHistoryViewModel: DividendHistoryViewModel?
+    let dataSource = DividendHistoryDataSource()
     weak var stockDelegate: StockManagerDelegate!
     
     @IBAction func addStock(_ sender: Any) {
@@ -55,17 +59,9 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dataSource = DividendHistoryDataSource()
-        dataSource.loadEx()
-        
         if stockDelegate == nil {
             self.stockDelegate = self
             StockManager.shared.addDelegate(stockDelegate)
-        }
-        
-        if divHistoryViewModel == nil {
-            self.divHistoryViewModel = DividendHistoryViewModel()
-            self.divHistoryViewModel?.searchDividendData()
         }
         
         historyTableView.delegate = self
@@ -78,7 +74,7 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: StockManagerDelegate {
     func stocksDidUpdate() {
-        divHistoryViewModel?.searchDividendData()
+        dataSource.reload()
         DispatchQueue.main.async {
             self.historyTableView.reloadData()
         }  
@@ -86,21 +82,42 @@ extension HistoryViewController: StockManagerDelegate {
 }
 
 extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = divHistoryViewModel?.finalDividendHistory.compactMap { $0 }.count
-        
-        if let count = count {
-            return count
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return DividendHistorySections.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch DividendHistorySections(rawValue: section) {
+        case .upcoming?: return "Upcoming Payments"
+        case .history?: return "Previous Payments"
+        default: return ""
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        switch section {
+        case 0: return dataSource.upcoming.count
+        case 1: return dataSource.history.count
+        default: return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier) as? HistoryTableViewCell else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier) as! HistoryTableViewCell
         
-        cell.set(using: divHistoryViewModel, at: indexPath.row)
+        let indexPathPosition = indexPath.row
+        let isUpcoming = indexPath.section == DividendHistorySections.upcoming.rawValue
+        
+        let dividend = isUpcoming ? dataSource.upcoming[indexPath.row] : dataSource.history[indexPath.row]
+        
+        if isUpcoming {
+            cell.setPayment(using: dividend)
+        } else {
+            cell.setHistory(using: dividend)
+        }
         
         return cell
     }
