@@ -22,23 +22,6 @@ class HistoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    public func set(using viewModel: DividendHistoryViewModel?, at index: Int) {
-        let div = viewModel?.finalDividendHistory[index]
-        
-        guard
-            let key = div?.first?.key,
-            let value = div?.first?.value else {
-                return
-        }
-        
-        let price = StockManager.shared.lastDividend(for: value)?.amount
-        
-        let text = key + value + " "
-        rightTextLabel.text = text
-        leftLabel.text = "\(price)"
-    
-    }
-    
     public func setPayment(using dividend: Dividend) {
         
         guard let ticker = dividend.stock?.ticker else { return }

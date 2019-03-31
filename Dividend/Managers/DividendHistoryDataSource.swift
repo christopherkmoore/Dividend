@@ -51,7 +51,7 @@ class DividendHistoryDataSource {
         let history = dividendsToShow
             .filter { !upcoming.contains($0) }
             .sorted { (first, second) -> Bool in
-                return first.exDate.date()! > second.exDate.date()!
+                return first.paymentDate.date()! > second.paymentDate.date()!
         }
         
         return (upcoming, history)
