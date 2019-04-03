@@ -257,8 +257,8 @@
 				03D562842220D715009A6251 /* DividendMetricsTableViewCell.xib */,
 				03D562852220D715009A6251 /* ModifySharesTableViewCell.xib */,
 				03D562862220D715009A6251 /* BannerTableViewCell.xib */,
-				03D562872220D715009A6251 /* HistoryTableViewCell.xib */,
 				03D562882220D715009A6251 /* LastUpdatedTableViewCell.xib */,
+				03D562872220D715009A6251 /* HistoryTableViewCell.xib */,
 				03D562892220D715009A6251 /* StockTableViewCell.xib */,
 			);
 			path = Xibs;

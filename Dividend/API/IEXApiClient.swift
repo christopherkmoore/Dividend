@@ -243,7 +243,8 @@ class IEXApiClient {
         if let request = requests {
             switch request {
             case .yearChart:
-                url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMonthInDays.rawValue + Endpoints.range.rawValue + Duration.y1.rawValue
+//                url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMonthInDays.rawValue + Endpoints.range.rawValue + Duration.y1.rawValue
+                url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "1" + Endpoints.range.rawValue + Duration.y1.rawValue
             case .dailyChart:
                 url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMinuteInDay.rawValue + Endpoints.range.rawValue + Duration.d1.rawValue
             case .dividends:

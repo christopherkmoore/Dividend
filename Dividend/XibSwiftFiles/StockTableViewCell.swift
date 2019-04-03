@@ -51,6 +51,4 @@ class StockTableViewCell: UITableViewCell {
         todaysChangeLabel.text = todaysChange
         percentChangelabel.text = viewModel.todaysChangePercent(stock)
     }
-    
-    
 }

@@ -23,6 +23,7 @@ class DividendHistoryDataSource {
         let dividends = loadPayment()
         self.upcoming = dividends.upcoming
         self.history = dividends.history
+        
     }
     
     public func loadPayment() -> (upcoming: [Dividend], history: [Dividend]) {
@@ -47,12 +48,13 @@ class DividendHistoryDataSource {
                 }
             }
         }
+        dividendsToShow = addIncreaseHistory(for: dividendsToShow)
         let upcoming = lookUpcomingPayments(for: dividendsToShow)
         let history = dividendsToShow
             .filter { !upcoming.contains($0) }
             .sorted { (first, second) -> Bool in
                 return first.paymentDate.date()! > second.paymentDate.date()!
-        }
+            }
         
         return (upcoming, history)
     }
@@ -70,6 +72,23 @@ class DividendHistoryDataSource {
             return false
         }
         return upcomingPayments
+    }
+    
+    private func addIncreaseHistory(for dividends: [Dividend]) -> [Dividend] {
+        
+        guard dividends.count > 0 else { return dividends }
+        var last: Dividend? = dividends.first
+        
+        return dividends.compactMap { (dividend) in
+            if let last = last {
+                if last.stock?.ticker == dividend.stock?.ticker && last.amount != dividend.amount {
+                    last.increase = last.amount - dividend.amount
+                } else { last.increase = 0 }
+            }
+
+            last = dividend
+            return dividend
+        }
     }
     
     // munge things

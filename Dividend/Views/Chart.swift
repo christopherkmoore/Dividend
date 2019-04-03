@@ -23,6 +23,9 @@ class Chart: UIView {
 
     
     required convenience init(frame: CGRect, with chartPoints: [ChartPointOneYear]) {
+//        let inset = UIEdgeInsets(top: Margins.top, left: Margins.left, bottom: Margins.bottom, right: Margins.right)
+//        frame.inset(by: inset)
+//        
         self.init(frame: frame)
         self.chartPoints = chartPoints
     }
@@ -62,14 +65,14 @@ class Chart: UIView {
                 y: maxYOffset * (CGFloat((yLowyHigh.max - point.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10)
 //                y: rect.midY * CGFloat((point.close / yLowyHigh.max)))
             
-            let circle = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: newPoint.x - 3, y: newPoint.y - 3), size: CGSize(width: 6, height: 6)))
-            
-            UIColor.black.setFill()
-            circle.fill()
+//            let circle = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: newPoint.x - 3, y: newPoint.y - 3), size: CGSize(width: 2, height: 2)))
+//
+//            UIColor.black.setFill()
+//            circle.fill()
             graphPath.addLine(to: newPoint)
         }
         UIColor.black.setStroke()
-        graphPath.lineWidth = 3.0
+        graphPath.lineWidth = 1.0
         graphPath.stroke()
         
     }

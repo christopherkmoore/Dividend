@@ -1,10 +1,3 @@
-//
-//  HistoryTableViewCell.swift
-//  DividendDaily
-//
-//  Created by Christopher Moore on 7/30/18.
-//  Copyright © 2018 Christopher Moore. All rights reserved.
-//
 
 import Foundation
 import UIKit
@@ -15,36 +8,26 @@ class HistoryTableViewCell: UITableViewCell {
     public static let identifier = "HistoryTableViewCell"
     public static let nib = UINib(nibName: HistoryTableViewCell.identifier, bundle: nil)
     
-    @IBOutlet weak var leftLabel: UILabel!
-    @IBOutlet weak var rightTextLabel: UILabel!
+    @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak var datePaid: UILabel!
+    @IBOutlet weak var amount: UILabel!
+    @IBOutlet weak var changeSinceLast: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    public func setPayment(using dividend: Dividend) {
-        
+    public func set(using dividend: Dividend) {
         guard let ticker = dividend.stock?.ticker else { return }
         
-        let description = "\(ticker) is paying on \(dividend.paymentDate)"
-        let amount = "\(dividend.amount)"
+        companyName.text = ticker
+        datePaid.text = dividend.paymentDate
+        amount.text = String(format: "%.2f", dividend.amount)
         
-        rightTextLabel.text = description
-        leftLabel.text = amount
+        changeSinceLast.text = dividend.increase != 0 ? String(format: "%.2f", dividend.increase) : ""
+        if dividend.increase > 0 {
+            changeSinceLast.text? = "+" + (changeSinceLast.text ?? "")
+        }
+        changeSinceLast.textColor = dividend.increase > 0 ? .green : .red
     }
-    
-    public func setHistory(using dividend: Dividend) {
-        
-        guard let ticker = dividend.stock?.ticker else { return }
-        
-        let description = "\(ticker) paid \(dividend.paymentDate)"
-        let amount = "\(dividend.amount)"
-        
-        rightTextLabel.text = description
-        leftLabel.text = amount
-
-    }
-    
-    
 }
-

@@ -26,6 +26,7 @@ class Dividend: NSManagedObject, Codable {
     @NSManaged public var recordDate: String
     @NSManaged public var declaredDate: String
     @NSManaged public var amount: Double
+    @NSManaged public var increase: Double
     @NSManaged public var stock: Stock?
 
     enum CodingKeys: String, CodingKey {

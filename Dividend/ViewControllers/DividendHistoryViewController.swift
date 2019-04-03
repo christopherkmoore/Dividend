@@ -87,6 +87,16 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         return DividendHistorySections.allCases.count
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(40)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        view.backgroundColor = .white
+        header.textLabel?.font = UIFont(name: "Helvetica", size: 25)
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch DividendHistorySections(rawValue: section) {
         case .upcoming?: return "Upcoming Payments"
@@ -113,11 +123,7 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         
         let dividend = isUpcoming ? dataSource.upcoming[indexPath.row] : dataSource.history[indexPath.row]
         
-        if isUpcoming {
-            cell.setPayment(using: dividend)
-        } else {
-            cell.setHistory(using: dividend)
-        }
+        cell.set(using: dividend)
         
         return cell
     }
