@@ -11,13 +11,7 @@ import UIKit
 
 class Chart: UIView {
     
-    /// rough estimates for layout margins of a Chart
-    private struct Margins {
-        static let right: CGFloat = 10
-        static let left: CGFloat = 10
-        static let top: CGFloat = 10
-        static let bottom: CGFloat = 5
-    }
+
     
     private var chartPoints: [ChartPointOneYear]!
 
@@ -51,7 +45,8 @@ class Chart: UIView {
 //        let range = yLowyHigh.max - yLowyHigh.min
         let maxYOffset = rect.maxY - 15
         let graphPath = UIBezierPath()
-        graphPath.move(to: CGPoint(x: 20,
+
+        graphPath.move(to: CGPoint(x: 0,
                                    y: maxYOffset * (CGFloat((yLowyHigh.max - chartPoints.first!.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10 ))
         for i in 0..<chartPoints.count {
             
