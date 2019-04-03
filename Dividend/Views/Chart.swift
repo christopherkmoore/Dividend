@@ -17,9 +17,6 @@ class Chart: UIView {
 
     
     required convenience init(frame: CGRect, with chartPoints: [ChartPointOneYear]) {
-//        let inset = UIEdgeInsets(top: Margins.top, left: Margins.left, bottom: Margins.bottom, right: Margins.right)
-//        frame.inset(by: inset)
-//        
         self.init(frame: frame)
         self.chartPoints = chartPoints
     }
@@ -42,7 +39,6 @@ class Chart: UIView {
             !chartPoints.isEmpty else { return }
         
         let yLowyHigh = findYRange()
-//        let range = yLowyHigh.max - yLowyHigh.min
         let maxYOffset = rect.maxY - 15
         let graphPath = UIBezierPath()
 
@@ -51,19 +47,11 @@ class Chart: UIView {
         for i in 0..<chartPoints.count {
             
             let xOffset = (rect.maxX * (CGFloat(CGFloat(1)/CGFloat(chartPoints.count)))) / 2
-            let yHighAdjusted = yLowyHigh.max
-            
             
             let point = chartPoints[i]
             let newPoint = CGPoint(
                 x: rect.maxX * (CGFloat(CGFloat(i)/CGFloat(chartPoints.count))) + xOffset,
                 y: maxYOffset * (CGFloat((yLowyHigh.max - point.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10)
-//                y: rect.midY * CGFloat((point.close / yLowyHigh.max)))
-            
-//            let circle = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: newPoint.x - 3, y: newPoint.y - 3), size: CGSize(width: 2, height: 2)))
-//
-//            UIColor.black.setFill()
-//            circle.fill()
             graphPath.addLine(to: newPoint)
         }
         UIColor.black.setStroke()
