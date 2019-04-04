@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="D6t-Zu-Py6" customClass="BannerTitleTableViewCell" customModule="Dividend" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D6t-Zu-Py6" id="Bv0-It-0wI">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WFC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4w-wF-K7Y">
+                        <rect key="frame" x="16" y="11" width="34" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wells Fargo Co" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-rN-3jz">
+                        <rect key="frame" x="16" y="31" width="79" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mET-Vf-cCR">
+                        <rect key="frame" x="319" y="30" width="36" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45.42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ui-25-af7">
+                        <rect key="frame" x="319" y="11" width="40" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mET-Vf-cCR" firstAttribute="top" secondItem="6ui-25-af7" secondAttribute="bottom" constant="1" id="3Ut-06-nt2"/>
+                    <constraint firstItem="dD1-rN-3jz" firstAttribute="top" secondItem="N4w-wF-K7Y" secondAttribute="bottom" constant="2" id="Juy-EP-YqA"/>
+                    <constraint firstItem="6ui-25-af7" firstAttribute="top" secondItem="Bv0-It-0wI" secondAttribute="top" constant="11" id="NQN-p6-CPT"/>
+                    <constraint firstItem="N4w-wF-K7Y" firstAttribute="leading" secondItem="dD1-rN-3jz" secondAttribute="leading" id="Xa9-z3-2zr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="6ui-25-af7" secondAttribute="trailing" id="gyn-mp-HmQ"/>
+                    <constraint firstItem="6ui-25-af7" firstAttribute="leading" secondItem="mET-Vf-cCR" secondAttribute="leading" id="khj-ZN-ahe"/>
+                    <constraint firstItem="dD1-rN-3jz" firstAttribute="centerY" secondItem="mET-Vf-cCR" secondAttribute="centerY" id="svA-0o-Eu2"/>
+                    <constraint firstItem="N4w-wF-K7Y" firstAttribute="leading" secondItem="Bv0-It-0wI" secondAttribute="leadingMargin" id="wKX-rz-ybl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="change" destination="mET-Vf-cCR" id="Puj-kN-ZPQ"/>
+                <outlet property="price" destination="6ui-25-af7" id="jYk-Go-5pf"/>
+                <outlet property="stockName" destination="dD1-rN-3jz" id="nac-kg-X9n"/>
+                <outlet property="ticker" destination="N4w-wF-K7Y" id="THF-Jo-7uc"/>
+            </connections>
+            <point key="canvasLocation" x="176.80000000000001" y="78.260869565217391"/>
+        </tableViewCell>
+    </objects>
+</document>

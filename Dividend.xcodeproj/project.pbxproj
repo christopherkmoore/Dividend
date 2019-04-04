@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033010EF2255703C00174149 /* TimeChangersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033010EE2255703C00174149 /* TimeChangersTableViewCell.xib */; };
+		033010F12255704E00174149 /* TimeChangersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033010F02255704E00174149 /* TimeChangersTableViewCell.swift */; };
+		033010F32255708E00174149 /* MetricsChangerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033010F22255708E00174149 /* MetricsChangerTableViewCell.xib */; };
+		033010F52255709900174149 /* MetricsChangerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033010F42255709900174149 /* MetricsChangerTableViewCell.swift */; };
+		033010F722557AEE00174149 /* BannerTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033010F622557AEE00174149 /* BannerTitleTableViewCell.xib */; };
+		033010F922557AFA00174149 /* BannerTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033010F822557AFA00174149 /* BannerTitleTableViewCell.swift */; };
 		0383B9172220D3B50072D893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B9162220D3B50072D893 /* AppDelegate.swift */; };
 		0383B9212220D3B70072D893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0383B9202220D3B70072D893 /* Assets.xcassets */; };
 		0383B9242220D3B70072D893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0383B9222220D3B70072D893 /* LaunchScreen.storyboard */; };
@@ -32,12 +38,10 @@
 		03D5629A2220D715009A6251 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5627B2220D715009A6251 /* HistoryTableViewCell.swift */; };
 		03D5629B2220D715009A6251 /* LastUpdatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5627C2220D715009A6251 /* LastUpdatedTableViewCell.swift */; };
 		03D5629C2220D715009A6251 /* ModifySharesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5627D2220D715009A6251 /* ModifySharesTableViewCell.swift */; };
-		03D5629D2220D715009A6251 /* DividendMetricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5627E2220D715009A6251 /* DividendMetricsTableViewCell.swift */; };
+		03D5629D2220D715009A6251 /* MetricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5627E2220D715009A6251 /* MetricsTableViewCell.swift */; };
 		03D5629E2220D715009A6251 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5627F2220D715009A6251 /* StockTableViewCell.swift */; };
 		03D5629F2220D715009A6251 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D562802220D715009A6251 /* BannerTableViewCell.swift */; };
-		03D562A02220D715009A6251 /* MarketMetricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D562812220D715009A6251 /* MarketMetricsTableViewCell.swift */; };
-		03D562A12220D715009A6251 /* MarketMetricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D562832220D715009A6251 /* MarketMetricsTableViewCell.xib */; };
-		03D562A22220D715009A6251 /* DividendMetricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D562842220D715009A6251 /* DividendMetricsTableViewCell.xib */; };
+		03D562A22220D715009A6251 /* MetricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D562842220D715009A6251 /* MetricsTableViewCell.xib */; };
 		03D562A32220D715009A6251 /* ModifySharesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D562852220D715009A6251 /* ModifySharesTableViewCell.xib */; };
 		03D562A42220D715009A6251 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D562862220D715009A6251 /* BannerTableViewCell.xib */; };
 		03D562A52220D715009A6251 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D562872220D715009A6251 /* HistoryTableViewCell.xib */; };
@@ -62,6 +66,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		033010EE2255703C00174149 /* TimeChangersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeChangersTableViewCell.xib; sourceTree = "<group>"; };
+		033010F02255704E00174149 /* TimeChangersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangersTableViewCell.swift; sourceTree = "<group>"; };
+		033010F22255708E00174149 /* MetricsChangerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetricsChangerTableViewCell.xib; sourceTree = "<group>"; };
+		033010F42255709900174149 /* MetricsChangerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsChangerTableViewCell.swift; sourceTree = "<group>"; };
+		033010F622557AEE00174149 /* BannerTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTitleTableViewCell.xib; sourceTree = "<group>"; };
+		033010F822557AFA00174149 /* BannerTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTitleTableViewCell.swift; sourceTree = "<group>"; };
 		0383B9132220D3B50072D893 /* Dividend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dividend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0383B9162220D3B50072D893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0383B9202220D3B70072D893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,12 +101,10 @@
 		03D5627B2220D715009A6251 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		03D5627C2220D715009A6251 /* LastUpdatedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastUpdatedTableViewCell.swift; sourceTree = "<group>"; };
 		03D5627D2220D715009A6251 /* ModifySharesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifySharesTableViewCell.swift; sourceTree = "<group>"; };
-		03D5627E2220D715009A6251 /* DividendMetricsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividendMetricsTableViewCell.swift; sourceTree = "<group>"; };
+		03D5627E2220D715009A6251 /* MetricsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricsTableViewCell.swift; sourceTree = "<group>"; };
 		03D5627F2220D715009A6251 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		03D562802220D715009A6251 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
-		03D562812220D715009A6251 /* MarketMetricsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketMetricsTableViewCell.swift; sourceTree = "<group>"; };
-		03D562832220D715009A6251 /* MarketMetricsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketMetricsTableViewCell.xib; sourceTree = "<group>"; };
-		03D562842220D715009A6251 /* DividendMetricsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DividendMetricsTableViewCell.xib; sourceTree = "<group>"; };
+		03D562842220D715009A6251 /* MetricsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MetricsTableViewCell.xib; sourceTree = "<group>"; };
 		03D562852220D715009A6251 /* ModifySharesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifySharesTableViewCell.xib; sourceTree = "<group>"; };
 		03D562862220D715009A6251 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerTableViewCell.xib; sourceTree = "<group>"; };
 		03D562872220D715009A6251 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -242,10 +250,12 @@
 				03D5627B2220D715009A6251 /* HistoryTableViewCell.swift */,
 				03D5627C2220D715009A6251 /* LastUpdatedTableViewCell.swift */,
 				03D5627D2220D715009A6251 /* ModifySharesTableViewCell.swift */,
-				03D5627E2220D715009A6251 /* DividendMetricsTableViewCell.swift */,
+				03D5627E2220D715009A6251 /* MetricsTableViewCell.swift */,
 				03D5627F2220D715009A6251 /* StockTableViewCell.swift */,
 				03D562802220D715009A6251 /* BannerTableViewCell.swift */,
-				03D562812220D715009A6251 /* MarketMetricsTableViewCell.swift */,
+				033010F02255704E00174149 /* TimeChangersTableViewCell.swift */,
+				033010F42255709900174149 /* MetricsChangerTableViewCell.swift */,
+				033010F822557AFA00174149 /* BannerTitleTableViewCell.swift */,
 			);
 			path = XibSwiftFiles;
 			sourceTree = "<group>";
@@ -253,13 +263,15 @@
 		03D562822220D715009A6251 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				03D562832220D715009A6251 /* MarketMetricsTableViewCell.xib */,
-				03D562842220D715009A6251 /* DividendMetricsTableViewCell.xib */,
+				03D562842220D715009A6251 /* MetricsTableViewCell.xib */,
 				03D562852220D715009A6251 /* ModifySharesTableViewCell.xib */,
 				03D562862220D715009A6251 /* BannerTableViewCell.xib */,
 				03D562882220D715009A6251 /* LastUpdatedTableViewCell.xib */,
 				03D562872220D715009A6251 /* HistoryTableViewCell.xib */,
 				03D562892220D715009A6251 /* StockTableViewCell.xib */,
+				033010EE2255703C00174149 /* TimeChangersTableViewCell.xib */,
+				033010F22255708E00174149 /* MetricsChangerTableViewCell.xib */,
+				033010F622557AEE00174149 /* BannerTitleTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -377,16 +389,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D562A22220D715009A6251 /* DividendMetricsTableViewCell.xib in Resources */,
+				033010F722557AEE00174149 /* BannerTitleTableViewCell.xib in Resources */,
+				03D562A22220D715009A6251 /* MetricsTableViewCell.xib in Resources */,
+				033010F32255708E00174149 /* MetricsChangerTableViewCell.xib in Resources */,
 				03D562A42220D715009A6251 /* BannerTableViewCell.xib in Resources */,
 				0383B9242220D3B70072D893 /* LaunchScreen.storyboard in Resources */,
 				0383B9212220D3B70072D893 /* Assets.xcassets in Resources */,
 				0385D8E02220FE3700BDC9DC /* Main.storyboard in Resources */,
-				03D562A12220D715009A6251 /* MarketMetricsTableViewCell.xib in Resources */,
 				03D562A62220D715009A6251 /* LastUpdatedTableViewCell.xib in Resources */,
 				03D562A52220D715009A6251 /* HistoryTableViewCell.xib in Resources */,
 				03D562A72220D715009A6251 /* StockTableViewCell.xib in Resources */,
 				03D562A32220D715009A6251 /* ModifySharesTableViewCell.xib in Resources */,
+				033010EF2255703C00174149 /* TimeChangersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,8 +457,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033010F922557AFA00174149 /* BannerTitleTableViewCell.swift in Sources */,
 				03D562AA2220D715009A6251 /* StockDetailViewModel.swift in Sources */,
 				0385D8DD2220F5DF00BDC9DC /* ChartPointOneYear.swift in Sources */,
+				033010F52255709900174149 /* MetricsChangerTableViewCell.swift in Sources */,
 				03D562962220D715009A6251 /* StockDetailViewController.swift in Sources */,
 				03D562922220D715009A6251 /* Dividend.swift in Sources */,
 				03D5628E2220D715009A6251 /* IEXApiClient.swift in Sources */,
@@ -455,15 +471,15 @@
 				03D562952220D715009A6251 /* Chart.swift in Sources */,
 				0383B93D2220D4370072D893 /* Dividend.xcdatamodeld in Sources */,
 				03D5629B2220D715009A6251 /* LastUpdatedTableViewCell.swift in Sources */,
-				03D5629D2220D715009A6251 /* DividendMetricsTableViewCell.swift in Sources */,
+				03D5629D2220D715009A6251 /* MetricsTableViewCell.swift in Sources */,
 				03D562982220D715009A6251 /* PortofolioViewController.swift in Sources */,
 				03D5629E2220D715009A6251 /* StockTableViewCell.swift in Sources */,
 				03D562932220D715009A6251 /* CoreDataStack.swift in Sources */,
 				03D5629A2220D715009A6251 /* HistoryTableViewCell.swift in Sources */,
+				033010F12255704E00174149 /* TimeChangersTableViewCell.swift in Sources */,
 				0383B94C2220D4690072D893 /* Utilities + Extensions.swift in Sources */,
 				03D562912220D715009A6251 /* Stock.swift in Sources */,
 				03D5628F2220D715009A6251 /* Quote.swift in Sources */,
-				03D562A02220D715009A6251 /* MarketMetricsTableViewCell.swift in Sources */,
 				03D5629C2220D715009A6251 /* ModifySharesTableViewCell.swift in Sources */,
 				0385D8E42221C85900BDC9DC /* DividendHistoryDataSource.swift in Sources */,
 				0383B9172220D3B50072D893 /* AppDelegate.swift in Sources */,
