@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +18,22 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wCc-Lj-55c" id="ABE-Xx-Gh0">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w4T-Gv-1LN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <viewLayoutGuide key="safeArea" id="hhC-Gk-Dae"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="w4T-Gv-1LN" secondAttribute="trailing" id="Ftb-X4-Rfd"/>
+                    <constraint firstItem="w4T-Gv-1LN" firstAttribute="top" secondItem="ABE-Xx-Gh0" secondAttribute="top" id="J2t-Wk-maj"/>
+                    <constraint firstItem="w4T-Gv-1LN" firstAttribute="leading" secondItem="ABE-Xx-Gh0" secondAttribute="leading" id="uIM-k1-wfY"/>
+                    <constraint firstAttribute="bottom" secondItem="w4T-Gv-1LN" secondAttribute="bottom" id="uLH-4b-yTw"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="stackView" destination="w4T-Gv-1LN" id="W8L-fn-neO"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

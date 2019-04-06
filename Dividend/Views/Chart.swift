@@ -9,9 +9,17 @@
 import Foundation
 import UIKit
 
+protocol ChartToggleable {
+    func chartWillUpdate(with duration: IEXApiClient.Duration)
+    func chartWillDisplay(_ display: Chart.Display)
+}
+
 class Chart: UIView {
     
-
+    public enum Display: String, CaseIterable {
+        case dividend = "Dividend History"
+        case stock = "Historical Averages"
+    }
     
     private var chartPoints: [ChartPointOneYear]!
 

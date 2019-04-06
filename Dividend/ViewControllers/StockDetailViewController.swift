@@ -21,19 +21,8 @@ class StockDetailViewController: UIViewController {
     }
     
     @IBOutlet weak var tableView: UITableView!
-    weak var stockDelegate: StockManagerDelegate!
-    var viewModel: StockDetailViewModel!
-    var stock: Stock! {
-        didSet {
-            // wait for API call to finish to load the chart
-            if stock.chartPointsOneYear != nil,
-                tableView != nil {
-                DispatchQueue.main.async {
-                    self.tableView.reloadRows(at: [IndexPath(row: Sections.banner.rawValue, section: 0)], with: .automatic)
-                }
-            }
-        }
-    }
+    weak var stockDelegate: StockManagerDelegate?
+    var stock: Stock!
     
     
     override func viewDidLoad() {
@@ -41,7 +30,7 @@ class StockDetailViewController: UIViewController {
         
         if stockDelegate == nil {
             self.stockDelegate = self
-            StockManager.shared.addDelegate(stockDelegate)
+            StockManager.shared.addDelegate(self)
         }
         
         registerCells()
@@ -50,14 +39,39 @@ class StockDetailViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    public func getChartData(for stock: Stock) {
-        IEXApiClient.shared.getChartDataOneYear(for: stock) { (success, stock, error) in
-            guard
-                let stock = stock,
-                let chartPoints = stock.chartPointsOneYear
-                else { return }
-            StockManager.shared.update(stock, using: chartPoints)
-            self.stock = stock
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateChart(using: .y1)
+    }
+    
+    public func getChartData(for stock: Stock, using duration: IEXApiClient.Duration, completion: @escaping (([ChartPointOneYear]?) -> Void)) {
+        
+        IEXApiClient.shared.getChartData(for: stock, with: duration) { result in
+            guard case let .success(points) = result else {
+                if case let .failure(error) = result {
+                    let alert = UIAlertController(title: "Unable to get information", message: error.localizedDescription, preferredStyle: .alert)
+                    let dismiss = UIAlertAction(title: "Dismiss", style: .cancel)
+                    alert.addAction(dismiss)
+                    
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                return
+            }
+            completion(points)
+        }
+    }
+    
+    private func updateChart(using duration: IEXApiClient.Duration) {
+        let indexPath = IndexPath(row: Sections.banner.rawValue, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as! BannerTableViewCell
+        getChartData(for: stock, using: duration) { points in
+            guard let points = points else { return }
+            
+            DispatchQueue.main.async {
+                cell.set(using: points)
+            }
         }
     }
 }
@@ -67,6 +81,18 @@ extension StockDetailViewController: StockManagerDelegate {
         //TODO: Refresh views
     }
 }
+
+extension StockDetailViewController: ChartToggleable {
+    
+    func chartWillDisplay(_ display: Chart.Display) {
+        //
+    }
+    
+    func chartWillUpdate(with duration: IEXApiClient.Duration) {
+        updateChart(using: duration)
+    }
+}
+
 
 extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -93,9 +119,13 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         let metricsCell = tableView.dequeueReusableCell(withIdentifier: MetricsTableViewCell.identifier, for: IndexPath(row: Sections.metrics.rawValue, section: 0)) as! MetricsTableViewCell
         let modifySharesCell = tableView.dequeueReusableCell(withIdentifier: ModifySharesTableViewCell.identifier, for: IndexPath(row: Sections.modifyShares.rawValue, section: 0)) as! ModifySharesTableViewCell
         
+        timeChangersCell.delegate = self
+        metricsChangersCell.delegate = self
+
         DispatchQueue.main.async {
-            bannerCell.set(using: self.stock)
             titleCell.set(using: self.stock)
+            timeChangersCell.set()
+            metricsChangersCell.set()
         }
         
         guard let section = Sections(rawValue: indexPath.row) else { return UITableViewCell() }
@@ -114,14 +144,12 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         guard let section = Sections(rawValue: indexPath.row) else { return CGFloat(0) }
 
         switch section {
-        case .title: return CGFloat(50)
+        case .title: return UIScreen.main.bounds.height / 17
         case .banner: return UIScreen.main.bounds.height / 3
-        case .timeChangers: CGFloat(50)
-        case .metricChangers: CGFloat(50)
-        case .metrics: return CGFloat(100)
-        case .modifyShares: return CGFloat(100)
-        default: return CGFloat(0)
+        case .timeChangers: return UIScreen.main.bounds.height / 17
+        case .metricChangers: return UIScreen.main.bounds.height / 17
+        case .metrics: return UIScreen.main.bounds.height / 9
+        case .modifyShares: return UIScreen.main.bounds.height / 9
         }
-        return CGFloat(0)
     }
 }

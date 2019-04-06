@@ -17,6 +17,7 @@ class IEXApiClient {
         case stockNameEmpty
         case apiCallFailed(URLResponse?)
         case codableFailure
+        case couldNotBuildURL
         
         public var localizedDescription: String {
             switch self {
@@ -25,6 +26,7 @@ class IEXApiClient {
             case .stockNameEmpty: return "Search is failing with empty stock name"
             case .apiCallFailed: return "Api call failed for an unknown reason"
             case .codableFailure: return "Codable failed to parse the API returned object"
+            case .couldNotBuildURL: return "Unable to build URL when creating URLRequest"
             }
         }
     }
@@ -47,7 +49,7 @@ class IEXApiClient {
         case dailyChart
     }
     
-    public enum Duration: String {
+    public enum Duration: String, CaseIterable {
         case d1 = "1d"
         case m1 = "1m"
         case m3 = "3m"
@@ -56,8 +58,6 @@ class IEXApiClient {
         case y1 = "1y"
         case y2 = "2y"
         case y5 = "5y"
-        case marketMonthInDays = "24"
-        case marketMinuteInDay = "20"
     }
     
     public enum Types: String {
@@ -107,7 +107,43 @@ class IEXApiClient {
     }
     */
     
-    public func getChartDataOneDay(for stock: Stock, completion: @escaping (Bool, [ChartPoint]?, IEXError?) -> Void) {
+    /// Gets Chart points for anything above a day (days return a different schema than everything else).
+    /// Also saves these points back to the stocks one year stock chart property.
+    ///
+    /// - Parameters:
+    ///   - stock: the stock to grab chart points from
+    ///   - duration: the duration (1d will fail to parse the codable object)
+    ///   - completion: result of the API call parsed into a codable ChartPointOneYear or IEXError
+    public func getChartData(for stock: Stock, with duration: IEXApiClient.Duration, completion: @escaping (Result<[ChartPointOneYear], IEXError>) -> Void) {
+        
+        guard let request = buildChartURL(for: stock, with: duration) else { completion(.failure(.couldNotBuildURL))
+            return
+        }
+        
+        session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                completion(.failure(.apiCallFailed(response)))
+                return
+            }
+            
+            var chartPoints: [ChartPointOneYear]!
+            
+            do {
+                chartPoints = try CodableSerialization.create(from: data)
+                let set = NSOrderedSet(array: chartPoints)
+                stock.chartPointsOneYear = set
+                StockManager.shared.update(stock, using: set)
+            } catch {
+                completion(.failure(.codableFailure))
+                return
+            }
+            
+            completion(.success(chartPoints))
+            
+            }.resume()
+    }
+    
+    public func getChartDataOneDay(for stock: Stock, with duration: IEXApiClient.Duration, completion: @escaping (Bool, [ChartPoint]?, IEXError?) -> Void) {
         
         // ex URL https://api.iextrading.com/1.0/stock/aapl/chart?chartInterval=24&range=1y
         guard let request = buildURL(for: stock.ticker, with: nil, and: .dailyChart) else { return }
@@ -126,35 +162,6 @@ class IEXApiClient {
             
         }.resume()
     }
-    
-    public func getChartDataOneYear(for stock: Stock, completion: @escaping (Bool, Stock?, IEXError?) -> Void) {
-        
-        // ex URL https://api.iextrading.com/1.0/stock/aapl/chart?chartInterval=24&range=1y
-        guard let request = buildURL(for: stock.ticker, with: nil, and: .yearChart) else { return }
-        
-        session.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                print(error?.localizedDescription as Any)
-                completion(false, nil, .apiCallFailed(response))
-                return
-            }
-            
-            var chartPoints: [ChartPointOneYear]!
-            
-            do {
-                chartPoints = try CodableSerialization.create(from: data)
-                let set = NSOrderedSet(array: chartPoints)
-                stock.chartPointsOneYear = set
-            } catch let error {
-                print(error.localizedDescription)
-                completion(false, nil, .codableFailure)
-            }
-            completion(true, stock, nil)
-            
-        }.resume()
-        
-    }
-    
     
     /* TODO: probably a good idea to submit a batch request */
     public func refreshQuote(for stocks: [Stock], completion: @escaping (Bool, [Stock]?) -> Void) {
@@ -246,7 +253,7 @@ class IEXApiClient {
 //                url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMonthInDays.rawValue + Endpoints.range.rawValue + Duration.y1.rawValue
                 url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "1" + Endpoints.range.rawValue + Duration.y1.rawValue
             case .dailyChart:
-                url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + Duration.marketMinuteInDay.rawValue + Endpoints.range.rawValue + Duration.d1.rawValue
+                url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "20" + Endpoints.range.rawValue + Duration.d1.rawValue
             case .dividends:
                 url += Endpoints.dividends.rawValue + Duration.y5.rawValue
             case .quotes:
@@ -258,6 +265,38 @@ class IEXApiClient {
             if let types = types {
                 url += types.rawValue
             }
+        }
+        
+        guard let realURL = URL(string: url) else { return nil }
+        
+        return URLRequest(url: realURL)
+
+    }
+    
+    private func buildChartURL(for stock: Stock, with duration: IEXApiClient.Duration) -> URLRequest?  {
+        
+        var url = IEXApiClient.baseUrl + Endpoints.stock.rawValue
+        url += stock.ticker + "/"
+
+
+        switch duration {
+        case .d1:
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "5" + Endpoints.range.rawValue + Duration.d1.rawValue
+        case .m1:
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "1" + Endpoints.range.rawValue + Duration.m1.rawValue
+        case .m3:
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "1" + Endpoints.range.rawValue + Duration.m3.rawValue
+        case .m6:
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "1" + Endpoints.range.rawValue + Duration.m6.rawValue
+        case .ytd:
+            // DEBUG
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "2" + Endpoints.range.rawValue + Duration.ytd.rawValue
+        case .y1:
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "1" + Endpoints.range.rawValue + Duration.y1.rawValue
+        case .y2:
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "2" + Endpoints.range.rawValue + Duration.y2.rawValue
+        case .y5:
+            url += Types.chart.rawValue + Endpoints.chartInterval.rawValue + "5" + Endpoints.range.rawValue + Duration.y5.rawValue
         }
         
         guard let realURL = URL(string: url) else { return nil }
