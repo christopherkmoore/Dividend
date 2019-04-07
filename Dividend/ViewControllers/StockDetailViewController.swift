@@ -57,6 +57,7 @@ class StockDetailViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                     }
                 }
+                completion(nil)
                 return
             }
             completion(points)
@@ -66,11 +67,28 @@ class StockDetailViewController: UIViewController {
     private func updateChart(using duration: IEXApiClient.Duration) {
         let indexPath = IndexPath(row: Sections.banner.rawValue, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! BannerTableViewCell
+        cell.removeChart()
+        
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.accessibilityIdentifier = "activity indicator"
+        activityIndicator.startAnimating()
+        activityIndicator.center = cell.contentView.center
+        
+        cell.addSubview(activityIndicator)
+        
         getChartData(for: stock, using: duration) { points in
-            guard let points = points else { return }
+            guard let points = points else {
+                DispatchQueue.main.async {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                }
+                return
+            }
             
             DispatchQueue.main.async {
                 cell.set(using: points)
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
             }
         }
     }
@@ -90,6 +108,7 @@ extension StockDetailViewController: ChartToggleable {
     
     func chartWillUpdate(with duration: IEXApiClient.Duration) {
         updateChart(using: duration)
+        //updateLabel()
     }
 }
 

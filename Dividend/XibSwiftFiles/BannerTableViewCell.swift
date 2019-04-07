@@ -26,13 +26,6 @@ class BannerTableViewCell: UITableViewCell {
     }
     
     public func set(using chartPoints: [ChartPointOneYear]) {
-        
-        for view in subviews {
-            if view.accessibilityIdentifier == "chart" {
-                view.removeFromSuperview()
-            }
-        }
-        
         let frame = CGRect(x: 0, y: 0, width: self.frame.width - Margins.width, height: self.frame.height - Margins.height)
         
         let chart = Chart(frame: frame, with: chartPoints)
@@ -40,5 +33,13 @@ class BannerTableViewCell: UITableViewCell {
         chart.center = self.contentView.center
         chart.accessibilityIdentifier = "chart"
         self.addSubview(chart)
+    }
+    
+    public func removeChart() {
+        for view in subviews {
+            if view.accessibilityIdentifier == "chart" {
+                view.removeFromSuperview()
+            }
+        }
     }
 }
