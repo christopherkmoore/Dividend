@@ -13,6 +13,7 @@ class BannerTitleTableViewCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var change: UILabel!
     
+    weak var stock: Stock?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,9 +29,7 @@ class BannerTitleTableViewCell: UITableViewCell {
             
             if rounded.first == "-" {
                 change.textColor = .red
-                change.textColor = .red
             } else {
-                change.textColor = .green
                 change.textColor = .green
             }
             self.change.text = rounded
@@ -40,5 +39,28 @@ class BannerTitleTableViewCell: UITableViewCell {
         self.stockName.text = stock.quote?.companyName ?? ""
         self.price.text = String(format: "%.2f", stock.quote?.latestPrice ?? 0)
         self.center = self.contentView.center
+        self.stock = stock
+    }
+}
+
+extension BannerTitleTableViewCell: BannerTitleUpdates {
+    func bannerTitleShouldFinish() {
+        if let stock = self.stock {
+            set(using: stock)
+        }
+    }
+    
+    func bannerTitleShouldUpdate(with point: ChartPointOneYear) {
+        
+        self.price.text = String(format: "%.2f", point.close)
+        let priceDifference = point.close - (stock?.quote?.latestPrice ?? 0) 
+        self.change.text = String(format: "%.2f", priceDifference)
+        self.stockName.text = point.date
+        
+        if priceDifference < 0 {
+            change.textColor = .red
+        } else {
+            change.textColor = .green
+        }
     }
 }

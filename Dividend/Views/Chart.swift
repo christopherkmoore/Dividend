@@ -14,6 +14,10 @@ protocol ChartToggleable {
     func chartWillDisplay(_ display: Chart.Display)
 }
 
+protocol Touchable {
+    func didTouchDownAtPoint(_ point: CGFloat) -> ChartPointOneYear?
+}
+
 class Chart: UIView {
     
     public enum Display: String, CaseIterable {
@@ -22,7 +26,7 @@ class Chart: UIView {
     }
     
     private var chartPoints: [ChartPointOneYear]!
-
+    private var map = [CGFloat: ChartPointOneYear]()
     
     required convenience init(frame: CGRect, with chartPoints: [ChartPointOneYear]) {
         self.init(frame: frame)
@@ -35,10 +39,6 @@ class Chart: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    public func setup(with points: [ChartPointOneYear]) {
-        self.chartPoints = points
     }
     
     // Begin drawing
@@ -57,15 +57,20 @@ class Chart: UIView {
             let xOffset = (rect.maxX * (CGFloat(CGFloat(1)/CGFloat(chartPoints.count)))) / 2
             
             let point = chartPoints[i]
-            let newPoint = CGPoint(
-                x: rect.maxX * (CGFloat(CGFloat(i)/CGFloat(chartPoints.count))) + xOffset,
-                y: maxYOffset * (CGFloat((yLowyHigh.max - point.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10)
+            let x = rect.maxX * (CGFloat(CGFloat(i)/CGFloat(chartPoints.count))) + xOffset
+            let y = maxYOffset * (CGFloat((yLowyHigh.max - point.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10
+            let newPoint = CGPoint(x: x, y: y)
             graphPath.addLine(to: newPoint)
+            
+            map[x] = point
         }
         UIColor.black.setStroke()
         graphPath.lineWidth = 1.0
         graphPath.stroke()
         
+    }
+    
+    private func addDateLabels() {
     }
     
     private func findYRange() -> (min: Double, max: Double) {
@@ -85,4 +90,49 @@ class Chart: UIView {
         return (min, max)
     }
     
+    func drawXLine(at point: CGFloat) {
+        let context = context
+        let graphLine = UIBezierPath()
+        graphLine.move(to: CGPoint(x: point, y: 0))
+        graphLine.addLine(to: CGPoint(x: point, y: self.frame.maxY))
+        UIColor.black.setStroke()
+        graphLine.lineWidth = 1.0
+        graphLine.stroke()
+    }
+    
+}
+
+extension Chart: Touchable {
+    public func didTouchDownAtPoint(_ point: CGFloat) -> ChartPointOneYear? {
+        var closeKeys = [CGFloat]()
+        for key in map.keys {
+            // we only need a few close keys, break iteration to save cycles after that
+            if closeKeys.count > 3 { break }
+            // if the points x minus the keys x absolute value is around 1, let's take that key.
+            var margin = point - key
+            
+            // a kind of shitty way of determining the absolute value
+            margin = margin < 0 ? margin * -1 : margin
+            
+            
+            if margin <= 1 { closeKeys.append(key)}
+        }
+        
+        var closestKey: CGFloat?
+        for key in closeKeys {
+            
+            if closestKey == nil {
+                closestKey = key
+                continue
+            }
+            
+            if (point - key) < closestKey ?? 10 {
+                closestKey = key
+            }
+        }
+        guard let key = closestKey else { return nil }
+        guard let value = map[key] else { return nil }
+        drawXLine(at: key)
+        return value
+    }
 }

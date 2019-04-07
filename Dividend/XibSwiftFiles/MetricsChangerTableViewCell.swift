@@ -2,11 +2,6 @@
 import Foundation
 import UIKit
 
-protocol ChartInformationToggleable {
-    
-    func chartShouldChange()
-}
-
 class MetricsChangerTableViewCell: UITableViewCell {
     
     public static let identifier = "MetricsChangerTableViewCell"

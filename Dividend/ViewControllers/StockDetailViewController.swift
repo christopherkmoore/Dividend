@@ -140,6 +140,7 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         
         timeChangersCell.delegate = self
         metricsChangersCell.delegate = self
+        bannerCell.titleDelegate = titleCell
 
         DispatchQueue.main.async {
             titleCell.set(using: self.stock)
@@ -163,7 +164,7 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         guard let section = Sections(rawValue: indexPath.row) else { return CGFloat(0) }
 
         switch section {
-        case .title: return UIScreen.main.bounds.height / 17
+        case .title: return UIScreen.main.bounds.height / 14
         case .banner: return UIScreen.main.bounds.height / 3
         case .timeChangers: return UIScreen.main.bounds.height / 17
         case .metricChangers: return UIScreen.main.bounds.height / 17

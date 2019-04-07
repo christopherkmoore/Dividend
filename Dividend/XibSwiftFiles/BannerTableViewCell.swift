@@ -9,13 +9,48 @@
 import Foundation
 import UIKit
 
+protocol BannerTitleUpdates {
+    func bannerTitleShouldUpdate(with point: ChartPointOneYear)
+    func bannerTitleShouldFinish()
+}
+
 class BannerTableViewCell: UITableViewCell {
     
     public static let identifier = "BannerTableViewCell"
     public static let nib = UINib(nibName: BannerTableViewCell.identifier, bundle: nil)
     
+    weak var chart: Chart?
+    
+    weak var titleDelegate: BannerTitleTableViewCell?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let point = touch.location(in: self)
+        let pointAdjustedForMargins = point.x - (Margins.width / 2)
+        if pointAdjustedForMargins > self.contentView.bounds.width { return }
+
+        let chartPoint = chart?.didTouchDownAtPoint(pointAdjustedForMargins)
+        guard let final = chartPoint else { return }
+        titleDelegate?.bannerTitleShouldUpdate(with: final)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let point = touch.location(in: self)
+        let pointAdjustedForMargins = point.x - (Margins.width / 2)
+        if pointAdjustedForMargins > self.contentView.bounds.width { return }
+        
+        let chartPoint = chart?.didTouchDownAtPoint(pointAdjustedForMargins)
+        guard let final = chartPoint else { return }
+        titleDelegate?.bannerTitleShouldUpdate(with: final)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        titleDelegate?.bannerTitleShouldFinish()
     }
     
     /// rough estimates for layout margins of a Chart
@@ -32,10 +67,12 @@ class BannerTableViewCell: UITableViewCell {
         chart.backgroundColor = .white
         chart.center = self.contentView.center
         chart.accessibilityIdentifier = "chart"
+        self.chart = chart
         self.addSubview(chart)
     }
     
     public func removeChart() {
+        self.chart = nil
         for view in subviews {
             if view.accessibilityIdentifier == "chart" {
                 view.removeFromSuperview()
