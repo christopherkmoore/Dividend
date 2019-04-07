@@ -32,7 +32,10 @@ class BannerTableViewCell: UITableViewCell {
         let point = touch.location(in: self)
         let pointAdjustedForMargins = point.x - (Margins.width / 2)
         if pointAdjustedForMargins > self.contentView.bounds.width { return }
-
+    
+        guard let tableView = superview as? UITableView else { return }
+        tableView.isScrollEnabled = false
+        
         let chartPoint = chart?.didTouchDownAtPoint(pointAdjustedForMargins)
         guard let final = chartPoint else { return }
         titleDelegate?.bannerTitleShouldUpdate(with: final)
@@ -50,7 +53,12 @@ class BannerTableViewCell: UITableViewCell {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        guard let tableView = superview as? UITableView else { return }
+        tableView.isScrollEnabled = true
+        
         titleDelegate?.bannerTitleShouldFinish()
+        chart?.didFinishTouching()
     }
     
     /// rough estimates for layout margins of a Chart

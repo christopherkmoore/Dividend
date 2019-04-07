@@ -16,6 +16,7 @@ protocol ChartToggleable {
 
 protocol Touchable {
     func didTouchDownAtPoint(_ point: CGFloat) -> ChartPointOneYear?
+    func didFinishTouching()
 }
 
 class Chart: UIView {
@@ -91,18 +92,31 @@ class Chart: UIView {
     }
     
     func drawXLine(at point: CGFloat) {
-        let context = context
+        
+        let lineLayer = CAShapeLayer()
         let graphLine = UIBezierPath()
+        
         graphLine.move(to: CGPoint(x: point, y: 0))
         graphLine.addLine(to: CGPoint(x: point, y: self.frame.maxY))
-        UIColor.black.setStroke()
-        graphLine.lineWidth = 1.0
-        graphLine.stroke()
+        graphLine.close()
+
+        lineLayer.path = graphLine.cgPath
+        lineLayer.lineWidth = 0.5
+        lineLayer.strokeColor = UIColor.lightGray.cgColor
+        
+        if let lastLayer = self.layer.sublayers?.first {
+            self.layer.replaceSublayer(lastLayer, with: lineLayer)
+        } else {
+            self.layer.addSublayer(lineLayer)
+        }
     }
-    
 }
 
 extension Chart: Touchable {
+    func didFinishTouching() {
+        self.layer.sublayers = nil
+    }
+    
     public func didTouchDownAtPoint(_ point: CGFloat) -> ChartPointOneYear? {
         var closeKeys = [CGFloat]()
         for key in map.keys {
