@@ -72,7 +72,6 @@ final class CoreDataManager {
         let managedObject = stock as NSManagedObject
         if managedObject.hasChanges {
 //            managedObject.setValue(chartPoints, forKey: "chartPoints")
-            
             do {
                 try managedObjectContext.save()
             } catch let error {
