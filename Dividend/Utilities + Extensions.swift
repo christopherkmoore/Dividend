@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension DateFormatter {
     
@@ -29,4 +30,12 @@ extension DateFormatter {
         
         return formatter
     }
+}
+
+extension UIColor {
+    
+    static var systemBlue: UIColor {
+        return UIButton(type: .system).tintColor
+    }
+    
 }

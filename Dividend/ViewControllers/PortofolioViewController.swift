@@ -118,6 +118,8 @@ extension PortfolioViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if indexPath.row == 0 { return }
+        
         guard
             let stock = StockManager.shared.stock(at: indexPath.row - 1),
             let controller = storyboard?.instantiateViewController(withIdentifier: "StockDetailViewController") as? StockDetailViewController else {

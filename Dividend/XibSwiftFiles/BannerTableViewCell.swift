@@ -28,17 +28,9 @@ class BannerTableViewCell: UITableViewCell {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let point = touch.location(in: self)
-        let pointAdjustedForMargins = point.x - (Margins.width / 2)
-        if pointAdjustedForMargins > self.contentView.bounds.width { return }
-    
         guard let tableView = superview as? UITableView else { return }
         tableView.isScrollEnabled = false
         
-        let chartPoint = chart?.didTouchDownAtPoint(pointAdjustedForMargins)
-        guard let final = chartPoint else { return }
-        titleDelegate?.bannerTitleShouldUpdate(with: final)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

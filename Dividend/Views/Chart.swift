@@ -47,31 +47,79 @@ class Chart: UIView {
         guard chartPoints != nil,
             !chartPoints.isEmpty else { return }
         
+        let numberOfLines = 3
+        
         let yLowyHigh = findYRange()
-        let maxYOffset = rect.maxY - 15
+        let volumeYRange = findVolumeYRange()
+        
+        // These two properties are used to leave room on the top and side margins
+        let chartHeight = rect.maxY - 15
+        let chartWidth = rect.maxX - 15
+        
         let graphPath = UIBezierPath()
+        let volumePath = UIBezierPath()
+        let horizontalLines = UIBezierPath()
 
         graphPath.move(to: CGPoint(x: 0,
-                                   y: maxYOffset * (CGFloat((yLowyHigh.max - chartPoints.first!.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10 ))
+                                   y: chartHeight * (CGFloat((yLowyHigh.max - chartPoints.first!.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10 ))
         for i in 0..<chartPoints.count {
             
-            let xOffset = (rect.maxX * (CGFloat(CGFloat(1)/CGFloat(chartPoints.count)))) / 2
+            let xOffset = (chartWidth * (CGFloat(CGFloat(1) / CGFloat(chartPoints.count)))) / 2
             
             let point = chartPoints[i]
-            let x = rect.maxX * (CGFloat(CGFloat(i)/CGFloat(chartPoints.count))) + xOffset
-            let y = maxYOffset * (CGFloat((yLowyHigh.max - point.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10
+            let x = chartWidth * (CGFloat(CGFloat(i)/CGFloat(chartPoints.count))) + xOffset
+            let y = chartHeight * (CGFloat((yLowyHigh.max - point.close)) / CGFloat((yLowyHigh.max - yLowyHigh.min))) + 10
             let newPoint = CGPoint(x: x, y: y)
             graphPath.addLine(to: newPoint)
             
+            // sketch volume
+            let volumeMoveTo = CGPoint(x: x, y: rect.maxY)
+            
+            // divide volume by the distribution between max and min
+            //to see **proportionally* how big the volume line should be
+            let yScaler = CGFloat(point.volume) / CGFloat((volumeYRange.max - volumeYRange.min))
+            
+            // 15 is around the height we want for the highest volume point
+            let volumeSketch = CGPoint(x: x, y: rect.maxY - (15 * yScaler ))
+            volumePath.move(to: volumeMoveTo)
+            
+            volumePath.addLine(to: volumeSketch)
             map[x] = point
         }
+        
+        for i in 0...numberOfLines {
+            let y = chartHeight * (CGFloat(i) / CGFloat(numberOfLines))
+            
+            horizontalLines.move(to: CGPoint(x: 0, y: y))
+            horizontalLines.addLine(to: CGPoint(x: frame.maxX, y: y))
+        }
+        horizontalLines.move(to: CGPoint(x: 0, y: 5))
+        horizontalLines.addLine(to: CGPoint(x: frame.maxX, y: 5))
+        
         UIColor.black.setStroke()
         graphPath.lineWidth = 1.0
         graphPath.stroke()
         
+        UIColor.lightGray.setStroke()
+        volumePath.lineWidth = 1.0
+        volumePath.stroke()
+        
+        UIColor.lightGray.setStroke()
+        horizontalLines.lineWidth = 0.5
+        horizontalLines.stroke()
+        
     }
     
-    private func addDateLabels() {
+    private func findVolumeYRange() -> (min: Int64, max: Int64) {
+        let sorted = chartPoints.sorted { (one, two) -> Bool in
+            return one.volume > two.volume
+        }
+        
+        let max = sorted.first!.volume
+        let min = sorted.last!.volume
+        
+        return (min, max)
+        
     }
     
     private func findYRange() -> (min: Double, max: Double) {
@@ -147,6 +195,7 @@ extension Chart: Touchable {
         guard let key = closestKey else { return nil }
         guard let value = map[key] else { return nil }
         drawXLine(at: key)
+//        print(value)
         return value
     }
 }

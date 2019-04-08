@@ -35,6 +35,7 @@ class StockDetailViewController: UIViewController {
         
         registerCells()
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -164,7 +165,7 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         guard let section = Sections(rawValue: indexPath.row) else { return CGFloat(0) }
 
         switch section {
-        case .title: return UIScreen.main.bounds.height / 14
+        case .title: return UIScreen.main.bounds.height / 17
         case .banner: return UIScreen.main.bounds.height / 3
         case .timeChangers: return UIScreen.main.bounds.height / 17
         case .metricChangers: return UIScreen.main.bounds.height / 17
