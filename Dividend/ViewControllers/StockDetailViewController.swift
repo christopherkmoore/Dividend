@@ -104,7 +104,11 @@ extension StockDetailViewController: StockManagerDelegate {
 extension StockDetailViewController: ChartToggleable {
     
     func chartWillDisplay(_ display: Chart.Display) {
-        //
+        let indexPath = IndexPath(row: Sections.metrics.rawValue, section: 0)
+        
+        //TODO: I want to eventually add a small underline under the items in the stackview
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+
     }
     
     func chartWillUpdate(with duration: IEXApiClient.Duration) {
@@ -141,12 +145,15 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         
         timeChangersCell.delegate = self
         metricsChangersCell.delegate = self
+        metricsChangersCell.metricsDelegate = metricsCell
         bannerCell.titleDelegate = titleCell
+        
 
         DispatchQueue.main.async {
             titleCell.set(using: self.stock)
             timeChangersCell.set()
             metricsChangersCell.set()
+            metricsCell.stockMetrics(using: self.stock)
         }
         
         guard let section = Sections(rawValue: indexPath.row) else { return UITableViewCell() }
@@ -169,7 +176,7 @@ extension StockDetailViewController: UITableViewDataSource, UITableViewDelegate 
         case .banner: return UIScreen.main.bounds.height / 3
         case .timeChangers: return UIScreen.main.bounds.height / 17
         case .metricChangers: return UIScreen.main.bounds.height / 17
-        case .metrics: return UIScreen.main.bounds.height / 9
+        case .metrics: return UIScreen.main.bounds.height / 5
         case .modifyShares: return UIScreen.main.bounds.height / 9
         }
     }

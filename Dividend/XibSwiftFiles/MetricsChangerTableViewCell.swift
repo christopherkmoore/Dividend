@@ -9,6 +9,7 @@ class MetricsChangerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var stackView: UIStackView!
     weak var delegate: StockDetailViewController?
+    weak var metricsDelegate: MetricsTableViewCell?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,6 +49,14 @@ class MetricsChangerTableViewCell: UITableViewCell {
             sender.tintColor = .lightGray
             sender.backgroundColor = .systemBlue
             delegate?.chartWillDisplay(display)
+            
+            switch display {
+            case .dividend:
+                metricsDelegate?.metricsShouldShowDividendMetrics()
+            case .stock:
+                metricsDelegate?.metricsShouldShowStockMetrics()
+            }
+            
         }
     }
 }

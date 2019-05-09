@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="h67-CN-JRI" userLabel="Metrics Table View Cell" customClass="MetricsTableViewCell" customModule="Dividend" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="186" id="h67-CN-JRI" userLabel="Metrics Table View Cell" customClass="MetricsTableViewCell" customModule="Dividend" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h67-CN-JRI" id="Dn1-Xh-AOW">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="185.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R9w-2O-bIn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="185.5"/>
+                        <viewLayoutGuide key="safeArea" id="Tb2-Fe-9ev"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="R9w-2O-bIn" secondAttribute="trailing" id="BdV-0z-i35"/>
+                    <constraint firstItem="R9w-2O-bIn" firstAttribute="top" secondItem="Dn1-Xh-AOW" secondAttribute="top" id="S6l-X3-KeO"/>
+                    <constraint firstAttribute="bottom" secondItem="R9w-2O-bIn" secondAttribute="bottom" id="hqx-h3-lce"/>
+                    <constraint firstItem="R9w-2O-bIn" firstAttribute="leading" secondItem="Dn1-Xh-AOW" secondAttribute="leading" id="xco-lf-ymt"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="13" y="-30"/>
+            <connections>
+                <outlet property="stackView" destination="R9w-2O-bIn" id="WC4-Go-ecP"/>
+            </connections>
+            <point key="canvasLocation" x="12" y="33.283358320839582"/>
         </tableViewCell>
     </objects>
 </document>

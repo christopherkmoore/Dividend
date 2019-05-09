@@ -39,3 +39,22 @@ extension UIColor {
     }
     
 }
+
+extension UIView {
+    func addUnderlineView() {
+        let view = UIView()
+        view.frame = CGRect(x: self.frame.minX, y: self.frame.height, width: self.frame.width - 2 , height: 1)
+
+        view.backgroundColor = .black
+        self.addSubview(view)
+    }
+    
+    func addUnderline() {
+        let bottom = CALayer()
+        bottom.frame = CGRect(x: self.frame.minX, y: self.frame.height, width: self.frame.width - 2 , height: 1)
+        bottom.backgroundColor = UIColor.purple.cgColor
+    
+        self.layer.addSublayer(bottom)
+        layer.needsLayout()
+    }
+}

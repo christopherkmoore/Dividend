@@ -13,6 +13,7 @@
 		033010F52255709900174149 /* MetricsChangerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033010F42255709900174149 /* MetricsChangerTableViewCell.swift */; };
 		033010F722557AEE00174149 /* BannerTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033010F622557AEE00174149 /* BannerTitleTableViewCell.xib */; };
 		033010F922557AFA00174149 /* BannerTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033010F822557AFA00174149 /* BannerTitleTableViewCell.swift */; };
+		033A1E7722654A64004E0E93 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033A1E7622654A64004E0E93 /* Metrics.swift */; };
 		0383B9172220D3B50072D893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B9162220D3B50072D893 /* AppDelegate.swift */; };
 		0383B9212220D3B70072D893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0383B9202220D3B70072D893 /* Assets.xcassets */; };
 		0383B9242220D3B70072D893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0383B9222220D3B70072D893 /* LaunchScreen.storyboard */; };
@@ -72,6 +73,7 @@
 		033010F42255709900174149 /* MetricsChangerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsChangerTableViewCell.swift; sourceTree = "<group>"; };
 		033010F622557AEE00174149 /* BannerTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTitleTableViewCell.xib; sourceTree = "<group>"; };
 		033010F822557AFA00174149 /* BannerTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTitleTableViewCell.swift; sourceTree = "<group>"; };
+		033A1E7622654A64004E0E93 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		0383B9132220D3B50072D893 /* Dividend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dividend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0383B9162220D3B50072D893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0383B9202220D3B70072D893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				03D562742220D715009A6251 /* Chart.swift */,
+				033A1E7622654A64004E0E93 /* Metrics.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				0383B9172220D3B50072D893 /* AppDelegate.swift in Sources */,
 				03D562902220D715009A6251 /* ChartPoint.swift in Sources */,
 				0385D8E22220FE9100BDC9DC /* CodableSerialization.swift in Sources */,
+				033A1E7722654A64004E0E93 /* Metrics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
